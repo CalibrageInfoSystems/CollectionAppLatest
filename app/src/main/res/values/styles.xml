@@ -1,0 +1,243 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:screenOrientation">portrait</item>
+    </style>
+
+    <!-- custom dialog activity theme -->
+    <style name="AppTheme.Dialog" parent="@android:style/Theme.Holo.DialogWhenLarge">
+        <!-- removing the dialog's action bar -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:screenOrientation">portrait</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="AppTheme.Dialogt" parent="Base.Theme.AppCompat.Light.Dialog.FixedSize">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="spinner_bg">
+        <item name="android:background">@drawable/spinner_bg</item>
+    </style>
+
+    <style name="spinnerStyle" parent="android:style/Widget.ListView.DropDown">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:divider">@color/colorPrimary</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>
+
+    <style name="basicBtnStyle">
+        <item name="android:background">@drawable/btn_stateful</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+
+    <style name="dialogBasicBtnStyle">
+        <item name="android:background">@drawable/btn_stateful</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">250dp</item>
+    </style>
+
+
+    <style name="moduleHomeBtnStyle">
+        <item name="android:textColor">@color/header_txt</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+
+    <style name="moduleBtnStyle">
+        <item name="android:background">@drawable/rounded_btn</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:drawableRight">@mipmap/arrow_ic</item>
+        <item name="android:drawablePadding">15dp</item>
+        <item name="android:paddingLeft">25dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+
+    <style name="textbasic_title_header">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif-bold</item>
+    </style>
+
+    <style name="textbasic_title">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-bold</item>
+    </style>
+
+    <style name="textbasic_title2_white">
+        <item name="android:textColor">#f5f5f5</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-bold</item>
+    </style>
+
+    <style name="header_h1_text_title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingTop">11dp</item>
+        <item name="android:textColor">@color/header_txt</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">Roboto_Regular</item>
+    </style>
+
+
+    <style name="header_h1_text_title_list_item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/header_txt</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">Roboto_Regular</item>
+    </style>
+
+
+    <style name="header_h1_text_title_with_background">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">Roboto_Regular</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+
+    <style name="header_h1_text_title_multi">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">39dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingTop">11dp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:textColor">@color/header_txt</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">Roboto_Regular</item>
+    </style>
+
+    <style name="basicGreyBtnStyle">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="basicRedBtnStyle">
+        <item name="android:background">@color/red</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="basicBlueBtnStyle">
+        <item name="android:background">@color/header_txt</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="editTxt_normal">
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@drawable/app_edittext</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_height">60dp</item>
+    </style>
+
+
+    <style name="editTxt_normal_address">
+        <item name="android:singleLine">false</item>
+        <item name="android:background">@drawable/app_edittext</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <style name="editTxt_height">
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:background">@drawable/app_edittext</item>
+        <item name="android:padding">2dp</item>
+    </style>
+
+    <style name="print_text_title">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-bold</item>
+    </style>
+
+    <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="custom_dialog_normal">
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@drawable/entry_view</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+    <string-array name="yesOrNo_values">
+        <item>---Select---</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+</resources>

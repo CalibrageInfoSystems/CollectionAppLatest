@@ -1,0 +1,247 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:id="@+id/surface_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+        <RelativeLayout
+            android:id="@+id/parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/printBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/printer_1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="false"
+                android:layout_marginEnd="1dp"
+                android:layout_marginTop="65dp"
+                android:layout_marginStart="1dp"
+                android:layout_toLeftOf="@+id/arrow_right"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="StockTransfer ID                    :"
+                        />
+
+                    <TextView
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"
+                        android:id="@+id/stCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date and Time Stamp           : "
+                        />
+                    <TextView
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"
+                        android:id="@+id/tv_dateandtimestamp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="From CC                                  : "
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"
+                        />
+                    <TextView
+                        android:id="@+id/fromCCTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/imageView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="To CC                                       : "
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"
+                        />
+                    <TextView
+                        android:id="@+id/tcCCTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/imageView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Net Weight                              : "
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"
+                        />
+                    <TextView
+                        android:id="@+id/netWeightTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/imageView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vehicle Number                     : "
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"
+                        />
+                    <TextView
+                        android:id="@+id/vehicleNumberTv"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="StockTransfer Created By    : "
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"
+                        />
+                    <TextView
+                        android:id="@+id/tvcreatedby"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_margin="2dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FromCC Agent Name            : "
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"
+                        />
+                    <TextView
+                        android:id="@+id/tvccagentname"
+                        style="@style/header_h1_text_title_list_item"
+                        android:textColor="@color/text_dark_gray"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="10dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/arrow_right"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="1dp"
+                android:visibility="gone"
+                android:src="@mipmap/arrow_point_to_right"
+                android:textColor="@color/action_color"
+                android:textSize="11sp" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

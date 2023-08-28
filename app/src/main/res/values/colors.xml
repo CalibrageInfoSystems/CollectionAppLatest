@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#009a0d</color>
+
+    <color name="colorPalmCornor">#fad4da</color>
+
+    <color name="colorPrimaryDark">#006709</color>
+
+    <color name="colorAccent">#052353</color>
+    <color name="header_txt">#000000</color>
+    <!--<color name="red">#EA4837</color>-->
+    <color name="white">#f5f5f5</color>
+    <color name="black">#000000</color>
+
+    <color name="btnNormalColor">#E34130</color>
+    <color name="btnPressedColor">#F34130</color>
+
+    <color name="light_gray">#BEBEBE</color>
+    <color name="action_color">#263242</color>
+    <color name="gray">#95a5a6</color>
+    <color name="text_dark_gray">#585858</color>
+    <color name="accent">#3777bb</color>
+
+    <color name="colorRecieveText">#00FF00</color>
+    <color name="colorSendText">#82CAFF</color>
+    <color name="colorStatusText">#FFDB58</color>
+
+
+    <color name="list_bg_pressed">#999999</color>
+    <color name="tab_indicator_color">#3fdb2f</color>
+    <color name="multiple_entries">#33CD00</color>
+    <color name="green_dark">#2EC54A</color>
+    <color name="whitepure">#FFFFFF</color>
+
+    <color name="red">#FFC93437</color>
+    <color name="blue">#FF375BF1</color>
+    <color name="yellow">#FFF7D23E</color>
+    <color name="green">#FF34A350</color>
+</resources>

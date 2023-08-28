@@ -1,0 +1,114 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:id="@+id/surface_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <RelativeLayout
+            android:id="@+id/parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.oilpalm3f.mainapp.uihelper.CircleImageView
+                android:id="@+id/circularImageView"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/download"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="4dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="1dp"
+                android:layout_marginStart="1dp"
+                android:layout_toLeftOf="@+id/arrow_right"
+                android:layout_toRightOf="@+id/circularImageView"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="15dp">
+
+                <TextView
+                    android:id="@+id/notif_title"
+                    style="@style/textbasic_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:tag="@string/user_name_comment_tag"
+                    android:text="sample"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/mobile_number"
+                    style="@style/header_h1_text_title_list_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:tag="@string/user_comment_tag"
+                    android:text="sample"
+                    android:textColor="@color/text_dark_gray"
+                    android:visibility="visible" />
+
+                <TextView
+
+                    android:id="@+id/fatherName"
+                    style="@style/header_h1_text_title_list_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:tag="@string/user_comment_tag"
+                    android:text="father name"
+                    android:textColor="@color/text_dark_gray"
+                    android:visibility="visible" />
+
+                <TextView
+
+                    android:id="@+id/villageName"
+                    style="@style/header_h1_text_title_list_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:tag="@string/user_comment_tag"
+                    android:text="village name"
+                    android:textColor="@color/text_dark_gray"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/stateName"
+                    style="@style/header_h1_text_title_list_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:tag="@string/user_comment_tag"
+                    android:text="state name"
+                    android:textColor="@color/text_dark_gray"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/arrow_right"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="1dp"
+                android:src="@mipmap/arrow_point_to_right"
+                android:textColor="@color/action_color"
+                android:textSize="11sp" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

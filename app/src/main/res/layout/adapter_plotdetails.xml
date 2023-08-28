@@ -1,0 +1,84 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="4dp"
+    card_view:cardUseCompatPadding="true">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/RLplotdetails"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_toLeftOf="@+id/chkSelected">
+
+
+            <TextView
+                android:id="@+id/tvplotidvalue"
+                style="@style/header_h1_text_title_list_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="PlotId" />
+
+            <TextView
+                android:id="@+id/tvplotvillagevalue"
+                style="@style/header_h1_text_title_list_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="Plot Village"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/tvplotlandmarkvalue"
+                style="@style/header_h1_text_title_list_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="Plot LandMark"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/tvplotareavalue"
+                style="@style/header_h1_text_title_list_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:text="Plot Area"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/tvplotsurveyvalue"
+                style="@style/header_h1_text_title_list_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:text="Plot survey number"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/chkSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="false" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

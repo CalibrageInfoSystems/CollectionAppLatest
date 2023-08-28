@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:orientation="vertical"
+    tools:context="com.oilpalm3f.mainapp.activitylogdetails.LogBookScreenActivity"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        style="@style/header_h1_text_title"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:padding="12dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/log_details" />
+    <TextView
+        style="@style/header_h1_text_title"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/client_name" />
+
+        <EditText
+            android:id="@+id/clientname"
+            style="@style/editTxt_normal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:maxLength="30"
+            android:textAllCaps="true" />
+
+    <TextView
+        style="@style/header_h1_text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/mobile_number" />
+    <EditText
+        android:id="@+id/clientmobilenum"
+        style="@style/editTxt_normal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:inputType="phone"
+        android:maxLength="10"
+        android:textAllCaps="true" />
+    <TextView
+        style="@style/header_h1_text_title"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/location" />
+    <EditText
+        android:id="@+id/clientlocation"
+        style="@style/editTxt_normal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:digits="@string/digits"
+        android:textAllCaps="true" />
+    <TextView
+        style="@style/header_h1_text_title"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/details_" />
+    <EditText
+        android:id="@+id/clientdetails"
+        style="@style/editTxt_normal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:digits="@string/digits"
+        android:textAllCaps="true" />
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginTop="50dp"
+        android:text="@string/save"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textAllCaps="true"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

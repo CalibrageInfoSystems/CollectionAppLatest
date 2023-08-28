@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_collection_center_home_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@android:color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.oilpalm3f.mainapp.collectioncenter.CollectionCenterHomeScreen"
+    tools:showIn="@layout/activity_collection_center_home_screen">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/newCollectionRel11"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/newCollection_logo11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="16dp"
+                        android:src="@mipmap/collection_icon" />
+
+                    <TextView
+                        android:id="@+id/newCollection_txt11"
+                        style="@style/moduleHomeBtnStyle"
+                        android:layout_below="@+id/newCollection_logo11"
+                        android:text="weighbridge" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/newCollectionRel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/newCollection_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="16dp"
+                        android:src="@mipmap/collection_icon" />
+
+                    <TextView
+                        android:id="@+id/newCollection_txt"
+                        style="@style/moduleHomeBtnStyle"
+                        android:layout_below="@+id/newCollection_logo"
+                        android:text="@string/new_collection" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/sendConsignmentRel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/sendConsignment_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="16dp"
+                        android:src="@mipmap/consignment_icon" />
+
+                    <TextView
+                        android:id="@+id/sendConsignment_txt"
+                        style="@style/moduleHomeBtnStyle"
+                        android:layout_below="@+id/sendConsignment_logo"
+                        android:text="@string/send_consignment" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:id="@+id/reportsRel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="visible">
+
+
+                    <ImageView
+                        android:id="@+id/reports_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="16dp"
+                        android:src="@mipmap/reports_icon" />
+
+                    <TextView
+                        android:id="@+id/reports_txt"
+                        style="@style/moduleHomeBtnStyle"
+                        android:layout_below="@+id/reports_logo"
+                        android:text="@string/reports" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/syncRel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/syncLogo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="16dp"
+                        android:src="@mipmap/sycn_icon" />
+
+                    <TextView
+                        android:id="@+id/receiveConsignment_txt"
+                        style="@style/moduleHomeBtnStyle"
+                        android:layout_below="@+id/syncLogo"
+                        android:text="@string/sync" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/stockTransfer_RL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/stockTransfer_icon"
+                        android:layout_width="190dp"
+                        android:layout_height="190dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/sendstock" />
+
+                    <TextView
+                        style="@style/moduleHomeBtnStyle"
+                        android:layout_below="@+id/stockTransfer_icon"
+                        android:text="@string/send_stock_transfer" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/receiveStock_Rel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/receiveStock_icon"
+                        android:layout_width="190dp"
+                        android:layout_height="190dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/sendstocktransfer"/>
+
+                    <TextView
+                        android:id="@+id/receiveStock_txt"
+                        style="@style/moduleHomeBtnStyle"
+                        android:layout_below="@+id/receiveStock_icon"
+                        android:text="@string/receive_stock_transfer" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/log_Rel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/log_icon"
+                        android:layout_width="190dp"
+                        android:layout_height="190dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/logbook" />
+
+                    <TextView
+                        style="@style/moduleHomeBtnStyle"
+                        android:layout_below="@+id/log_icon"
+                        android:text="@string/log_book" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/log_updateFingerprint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/fingerprint_icon"
+                        android:layout_width="190dp"
+                        android:layout_height="190dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/logbook" />
+
+                    <TextView
+                        style="@style/moduleHomeBtnStyle"
+                        android:layout_below="@+id/fingerprint_icon"
+                        android:text="Update Fingerprints" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

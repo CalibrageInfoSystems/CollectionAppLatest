@@ -1,0 +1,172 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+    mavenCentral()
+}
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+//    flavorDimensions "default"
+    defaultConfig {
+        applicationId "com.oilpalm3f.mainapp"
+        flavorDimensions "default"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 123
+        versionName "3.1.123"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        useLibrary 'org.apache.http.legacy'
+
+
+    }
+
+
+//    productFlavors {
+//        publicApp {
+//            applicationId "com.oilpalm3f.mainapp.test"
+//            minSdkVersion 21
+//            targetSdkVersion 28
+//            versionCode 110
+//            versionName "3.1.110"
+//            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//            multiDexEnabled true
+//            useLibrary 'org.apache.http.legacy'}
+//        internal {
+//            applicationId "com.oilpalm3f.mainapp.test"
+//            minSdkVersion 21
+//            targetSdkVersion 28
+//            versionCode 110
+//            versionName "3.1.110"
+//            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//            multiDexEnabled true
+//            useLibrary 'org.apache.http.legacy'
+//        }
+//    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('../app/keys/3f_main_app_release_key.jks')
+            storePassword '3F_Main'
+            keyAlias '3F_Main_App_Alias'
+            keyPassword '3F_Main_Alias'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'AndroidManifest.xml'
+        exclude 'jsr305_annotations/Jsr305_annotations.gwt.xml'
+
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+//    lintOptions {
+//        abortOnError false
+//    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    fileTree(dir: 'libs', include: '**/*.aar')
+            .each { File file ->
+        dependencies.add("implementation", [name: file.name.lastIndexOf('.').with {
+            it != -1 ? file.name[0..<it] : file.name
+        }, ext                                  : 'aar'])
+    }
+
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.4@aar') {
+        transitive = true;
+    }
+    //    compile group: 'com.itextpdf', name: 'itextpdf', version: '5.0.6'
+    implementation files('libs/AnalogicsVersa3TBTPrinterAPI.jar')
+    implementation files('libs/AndroidPrinterSDK3.0.jar')
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.okhttp:okhttp:2.5.0'
+    implementation 'com.squareup.retrofit:retrofit:1.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.10.0'
+    implementation 'com.squareup.okhttp:mockwebserver:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+    implementation 'org.codehaus.jackson:jackson-mapper-asl:1.9.12'
+    implementation 'org.apache.commons:commons-lang3:3.5'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.googlecode.android-query:android-query:0.25.9'
+
+
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
+
+
+    implementation 'com.github.GrenderG:Toasty:1.3.0'
+
+    implementation 'com.evernote:android-job:1.1.9'
+
+    implementation 'me.dm7.barcodescanner:zxing:1.9.13'
+    implementation 'me.dm7.barcodescanner:zbar:1.8.4'
+
+    testImplementation 'junit:junit:4.12'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
+
+    //Fingerprtint Related
+
+    implementation files('libs/AlCamera.jar')
+    implementation files('libs/FDxSDKProFDAndroid.jar')
+}

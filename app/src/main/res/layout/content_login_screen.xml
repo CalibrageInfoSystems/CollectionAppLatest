@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_login_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.oilpalm3f.mainapp.ui.LoginScreen"
+    tools:showIn="@layout/activity_login_screen"
+    android:background="@drawable/rib">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            style="@style/textbasic_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Database Version:" />
+
+        <TextView
+            android:id="@+id/dbVersiontxt"
+            style="@style/textbasic_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="1.1.1" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                style="@style/textbasic_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IMEI Number:" />
+
+            <TextView
+                android:id="@+id/imeiNumberTxt"
+                style="@style/textbasic_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="1.1.1" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                style="@style/textbasic_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Version:" />
+
+            <TextView
+                android:id="@+id/versionnumbertxt"
+                style="@style/textbasic_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="1.1.1" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rib"
+        android:layout_above="@+id/loginLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"
+        android:visibility="gone">
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:id="@+id/loginLayout">
+
+        <EditText
+            android:id="@+id/representative"
+            style="@style/editTxt_normal"
+            android:layout_width="450dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-/. "
+            android:hint="@string/representative_hint"
+            android:inputType="textCapSentences|textNoSuggestions"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/userID"
+            android:focusable="false"
+            android:editable="false"
+            style="@style/editTxt_normal"
+            android:layout_width="450dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:hint="@string/userid_hint"
+            android:text=""
+            android:maxLines="1" />
+
+        <EditText
+            android:id="@+id/passwordEdit"
+            style="@style/editTxt_normal"
+            android:layout_width="450dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:focusable="false"
+            android:editable="false"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:text=""
+            android:maxLines="1" />
+
+        <Button
+            android:id="@+id/signInBtn"
+            style="@style/basicBtnStyle"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="@string/login_btn" />
+
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/sync"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:padding="10dp"
+        android:src="@drawable/sync" />
+
+</RelativeLayout>

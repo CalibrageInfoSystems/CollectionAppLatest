@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/header_h1_text_title_with_background"
+        android:layout_height="50dp"
+        android:layout_marginTop="2dp"
+        android:padding="5dp"
+        android:text="@string/choose_collection_center"
+        android:textSize="25dp" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            style="@style/header_h1_text_title_with_background"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="2dp"
+            android:gravity="right"
+            android:padding="10dp"
+            android:textSize="14dp"
+            android:textStyle="normal"
+            android:id="@+id/gpsVillageName"
+            android:textColor="@color/black"
+            />
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="2dp"
+            android:padding="10dp"
+            android:text="@string/change_collection_center"
+            android:textSize="14dp"
+            android:id="@+id/chooseTxt"
+            style="@style/basicBtnStyle"
+            />
+
+    </RelativeLayout>
+
+
+
+    <Spinner
+        android:id="@+id/collectionSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/spinner_bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/okBtn"
+            style="@style/basicBtnStyle"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/ok" />
+
+    </LinearLayout>
+
+</LinearLayout>

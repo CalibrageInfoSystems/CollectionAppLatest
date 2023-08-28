@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:layout_margin="10dp"
+    android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_layout"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/header_h1_text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="From Date" />
+
+        <EditText
+            android:id="@+id/fromDate"
+            style="@style/editTxt_normal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:editable="false"
+            android:focusable="false"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/margin_top_layout"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/header_h1_text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="To Date" />
+
+        <EditText
+            android:id="@+id/toDate"
+            style="@style/editTxt_normal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:editable="false"
+            android:focusable="false"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/searchBtn"
+        style="@style/basicBtnStyle"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_vertical"
+        android:text="Search"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

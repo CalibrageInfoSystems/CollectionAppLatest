@@ -1,0 +1,32 @@
+
+CropCollection v_3.1.4 Release Note
+
+1-  Mobile no. of the Driver and vehicle type (Van Lorry, Tractor) to be added as fields in Tablet for send consignment.
+
+2-   Add Account Holder name in print receipt.
+
+3-  Resolve Transaction Sync issue after reset data.
+
+4-  Weather Information on Login page.   (Disabled)
+
+5-   Multiple Language Support. (Disabled)
+6-   DataBase Version : 4
+=======================CropCollection v3.1.10======================
+small enhancement in choose collection center.
+and removed unwanted master tables.
+=======================CropCollection v3.1.11======================
+1. Collection without plot Farmers are added
+2. 5 Tables are  added(CollectionFamrer,CollectionFaremrbank,CollectonIdProofs,CollectionFileRepository,CollectionWithoOutplot)
+  those are Tables are added.
+3. Collection without plot Farmer  details are visible in FarmerList and those Collection without plot Famres also can allow
+ the Collection.
+4. AutoMaster sync and Auto TransactionSync.
+5. CropCollection Images will delete after 1 month , when the collection images has experied.
+6. App icon issue in Knox
+=======================CropCollection v3.1.12======================
+Display of total net weight is wrong in tablet
+
+=======================CropCollection v3.1.14======================
+Screen Sizes in New tab
+Display the Farmers based on the userState.
+

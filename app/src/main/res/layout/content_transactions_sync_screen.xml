@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_transactions_sync_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".datasync.ui.TransactionsSyncScreen"
+    tools:showIn="@layout/activity_transactions_sync_screen">
+
+    <LinearLayout
+        android:layout_width="450dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp">
+
+
+        <TextView
+            android:id="@+id/stateTxt"
+            style="@style/header_h1_text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/reg_logo"
+            android:layout_marginTop="30dp"
+            android:fontFamily="Roboto_Regular"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="State" />
+
+        <Spinner
+            android:id="@+id/statespin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/spinner_bg" />
+
+        <TextView
+            android:id="@+id/districtTxt"
+            style="@style/header_h1_text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/reg_logo"
+            android:layout_marginTop="30dp"
+            android:fontFamily="Roboto_Regular"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="District" />
+
+        <Spinner
+            android:id="@+id/districtSpin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/spinner_bg">
+
+        </Spinner>
+
+        <TextView
+            android:id="@+id/mandalTxt"
+            style="@style/header_h1_text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/reg_logo"
+            android:layout_marginTop="30dp"
+            android:fontFamily="Roboto_Regular"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="Mandal" />
+
+        <Spinner
+            android:id="@+id/mandalSpin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/spinner_bg">
+
+        </Spinner>
+
+        <TextView
+            android:id="@+id/villageTxt"
+            style="@style/header_h1_text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/reg_logo"
+            android:layout_marginTop="30dp"
+            android:fontFamily="Roboto_Regular"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="Village" />
+
+        <Spinner
+            android:id="@+id/villageSpin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/spinner_bg">
+
+        </Spinner>
+
+        <Button
+            android:id="@+id/submitBtn"
+            style="@style/basicBtnStyle"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Sync" />
+
+        <Button
+            android:id="@+id/globalSyncBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/basicBtnStyle"
+            android:text="Global Sync"
+            android:layout_marginTop="40dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

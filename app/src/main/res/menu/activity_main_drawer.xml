@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Details">
+        <menu>
+            <item
+                android:id="@+id/nav_palmDetails"
+                android:title="@string/palmDetails" />
+            <item
+                android:id="@+id/nav_interCropDetails"
+                android:title="@string/interCropDetails" />
+            <item
+                android:id="@+id/nav_cropsGrowing_in_NeighboringPlot"
+                android:title="@string/cropsGrowing_in_NeighboringPlot" />
+            <item
+                    android:id="@+id/nav_ffbHarvestDetails"
+                android:title="@string/ffbHarvestDetails" />
+            <item
+                android:id="@+id/nav_uprootmentDetails"
+                android:title="@string/uprootmentDetails" />
+            <item
+                android:id="@+id/nav_healthOfPlantationDetails"
+                android:title="@string/healthOfPlantationDetails" />
+
+        </menu>
+    </item>
+
+    <item android:title="@string/cropMaintenance">
+        <menu>
+            <item
+                android:id="@+id/nav_fertilizerApplication"
+                android:title="@string/fertilizerApplication" />
+            <item
+                android:id="@+id/nav_weedingDetails"
+                android:title="@string/weedingDetails" />
+        </menu>
+    </item>
+
+    <item android:title="@string/plantProtectionDetails">
+        <menu>
+            <item
+                android:id="@+id/nav_diseaseDetails"
+                android:title="@string/diseaseDetails" />
+            <item
+                android:id="@+id/nav_pestDetails"
+                android:title="@string/pestDetails" />
+        </menu>
+    </item>
+
+        <item
+            android:id="@+id/nav_complaintDetails"
+            android:title="@string/complaintDetails" />
+
+
+</menu>

@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+
+        <RelativeLayout
+            android:id="@+id/RLMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:padding="5dp">
+
+            <RelativeLayout
+                android:id="@+id/tvtitlepersonaldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/header_h1_text_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Personal Details" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/pdRL1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/profile_pic"
+                    android:layout_width="220dp"
+                    android:layout_height="240dp"
+                    android:background="#6A5B07"
+                    android:padding="3dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/ic_launcher" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/pdRLfarmername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/tvtitlepersonaldetails"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dip">
+
+                <TextView
+                    android:id="@+id/tvtitlefarmername"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Farmer Name :" />
+
+                <TextView
+                    android:id="@+id/tvfarmername"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/tvtitlefarmername"
+                    android:text="" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/pdRLfathername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/pdRLfarmername"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dip">
+
+                <TextView
+                    android:id="@+id/tvtitlefathername"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Father/ Husband name :" />
+
+                <TextView
+                    android:id="@+id/tvfathername"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/tvtitlefathername"
+                    android:singleLine="true"
+                    android:text="" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/pdRLvillagename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/pdRLfathername"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dip">
+
+                <TextView
+                    android:id="@+id/tvtitlevillagename"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Viilage Name :" />
+
+                <TextView
+                    android:id="@+id/tvvillagename"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/tvtitlevillagename"
+                    android:singleLine="true"
+                    android:text="" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/pdRLcontactnumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/pdRLvillagename"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dip">
+
+                <TextView
+                    android:id="@+id/tvtitlecontactnumber"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact Number :" />
+
+                <TextView
+                    android:id="@+id/tvcontactnumber"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/tvtitlecontactnumber"
+                    android:singleLine="true"
+                    android:text="" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/pdRLaddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/pdRLcontactnumber"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dip">
+
+                <TextView
+                    android:id="@+id/tvtitleaddress"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address :" />
+
+                <TextView
+                    android:id="@+id/tvaddress"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/tvtitleaddress"
+                    android:singleLine="true"
+                    android:text="" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/pdRLaddress"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorPrimary" />
+
+            <RelativeLayout
+                android:id="@+id/tvtitlebankdetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pdRLaddress"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:padding="10dip">
+
+                <TextView
+                    style="@style/header_h1_text_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bank Details" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/bdRLholdername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvtitlebankdetails"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dip">
+
+                <TextView
+                    android:id="@+id/tvtitleholdername"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Account Holder Name :" />
+
+                <TextView
+                    android:id="@+id/tvholdername"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/tvtitleholdername"
+                    android:singleLine="true"
+                    android:text="" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/bdRLbankname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bdRLholdername"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dip">
+
+                <TextView
+                    android:id="@+id/tvtitlebankname"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bank Name :" />
+
+                <TextView
+                    android:id="@+id/tvbankname"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/tvtitlebankname"
+                    android:singleLine="true"
+                    android:text="" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/bdRLaccountnumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bdRLbankname"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dip">
+
+                <TextView
+                    android:id="@+id/tvtitleaccno"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Account Number :" />
+
+                <TextView
+                    android:id="@+id/tvaccno"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/tvtitleaccno"
+                    android:singleLine="true"
+                    android:text="" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/bdRLbranch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bdRLaccountnumber"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dip">
+
+                <TextView
+                    android:id="@+id/tvtitlebranch"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Branch Name :" />
+
+                <TextView
+                    android:id="@+id/tvbranch"
+                    style="@style/textbasic_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/tvtitlebranch"
+                    android:singleLine="true"
+                    android:text="" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/bdRLbranch"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorPrimary" />
+
+
+            <RelativeLayout
+                android:id="@+id/tvtitleplotdetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bdRLbranch"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:padding="10dip">
+
+                <TextView
+                    style="@style/header_h1_text_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Plot Details" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/bdRLplotdetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvtitleplotdetails"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:id="@+id/tvtitleplotid"
+                    style="@style/header_h1_text_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Plot Id" />
+
+                <TextView
+                    android:id="@+id/tvplotlandmark"
+                    style="@style/header_h1_text_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tvtitleplotid"
+                    android:layout_weight="1"
+                    android:text="Plot LandMark" />
+
+                <TextView
+                    android:id="@+id/tvplotarea"
+                    style="@style/header_h1_text_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tvplotlandmark"
+                    android:layout_weight="1"
+                    android:text="Total Plot Area (Ha)" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/bdRLplotdetailslist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bdRLplotdetails"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/lv_farmerplotdetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@color/gray"
+                    android:dividerHeight="1px">
+
+                </android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+
+</RelativeLayout>

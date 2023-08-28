@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/content"
+    android:background="@color/white"
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ToggleButton
+            android:id="@+id/controlLineRts"
+            style="@style/basicBtnStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48sp"
+            android:textOff="RTS"
+
+            android:textOn="RTS"
+            android:visibility="gone" />
+
+        <ToggleButton
+            android:id="@+id/controlLineCts"
+            style="@style/basicBtnStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:clickable="false"
+            android:minWidth="48sp"
+            android:textOff="CTS"
+
+            android:textOn="CTS"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="6dp"
+            android:layout_height="match_parent" />
+
+        <ToggleButton
+            android:id="@+id/controlLineDtr"
+            style="@style/basicBtnStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48sp"
+            android:textOff="DTR"
+
+            android:textOn="DTR"
+            android:visibility="gone" />
+
+        <ToggleButton
+            android:id="@+id/controlLineDsr"
+            style="@style/basicBtnStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:clickable="false"
+            android:minWidth="48sp"
+
+            android:textOff="DSR"
+            android:textOn="DSR"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="6dp"
+            android:layout_height="match_parent" />
+
+        <ToggleButton
+            android:id="@+id/controlLineCd"
+            style="@style/basicBtnStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:minWidth="48sp"
+
+            android:textOff="CD"
+
+            android:textOn="CD"
+
+            android:visibility="gone" />
+
+        <ToggleButton
+            android:id="@+id/controlLineRi"
+            style="@style/basicBtnStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:clickable="false"
+            android:minWidth="48sp"
+
+            android:textOff="RI"
+            android:textOn="RI"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/baaudrate"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@color/green"
+            android:textColor="@android:color/white"
+            android:clickable="false" />
+
+        <TextView
+            android:id="@+id/changebr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="end"
+            android:layout_marginLeft="250dp"
+            android:background="@color/green"
+            android:textColor="@android:color/white"
+           android:text="Change Baud Rate" />
+
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="?android:attr/listDivider"
+        android:layout_height="2dp" />
+
+    <TextView
+        android:id="@+id/receive_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:freezesText="true"
+        android:textColor="@color/black"
+        android:gravity="bottom"
+        android:scrollbars="vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:typeface="monospace" />
+
+    <Button
+        android:id="@+id/receive_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/basicBtnStyle"
+
+        android:text="Read" />
+
+    <View
+        android:layout_width="match_parent"
+        android:background="?android:attr/listDivider"
+        android:layout_height="2dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/oktext"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="text|textNoSuggestions"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/ok_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_send_white_24dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="right"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/okText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/green"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:singleLine="true" />
+
+
+        <Button
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            style="@style/basicBtnStyle"
+            android:text="Next"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone
+"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/uptoCharsEt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="text|textNoSuggestions"
+            android:singleLine="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            style="@style/basicBtnStyle"
+            android:text="Read Upto"
+            android:id="@+id/readUptoBtn"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_send_white_24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/send_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="text|textNoSuggestions"
+            android:singleLine="true" />
+
+        <ImageButton
+            android:id="@+id/send_btn"
+            android:layout_width="wrap_content"
+            style="@style/basicBtnStyle"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_send_white_24dp" />
+    </LinearLayout>
+
+
+</LinearLayout>

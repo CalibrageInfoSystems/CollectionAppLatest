@@ -91,9 +91,10 @@ public class CollectionCenterHomeScreen extends OilPalmBaseActivity {
     public static final String CHANGE_COLLECTION_CENTER = "chenge_collection_center";
     public static final String CONSIGNMENT = "consignment";
     public static final String STOCK_TRANSFER = "stock_transfer";
+    public static final String Verify_Fingerprint = "Verify_FingerPrint";
     private static final String LOG_TAG = CollectionCenterHomeScreen.class.getName();
     public boolean receivedAddr = false;
-    private ImageView newCollectionRel, sendConsignmentRel, syncRel, reportsRel, receiveStockRel, sendStockTransferRL, log_icon,fingerprint_icon;
+    private ImageView newCollectionRel, sendConsignmentRel, syncRel, reportsRel, receiveStockRel, sendStockTransferRL, log_icon,fingerprint_icon,verifyfingerprint_icon;
     private boolean doubleback = false;
     private CCDataAccessHandler ccDataAccessHandler = null;
     private List<CollectionCenter> collectionCenterList = null;
@@ -194,6 +195,7 @@ public class CollectionCenterHomeScreen extends OilPalmBaseActivity {
         log_updateFingerprint = findViewById(R.id.log_updateFingerprint);
 
         fingerprint_icon = findViewById(R.id.fingerprint_icon);
+        verifyfingerprint_icon = findViewById(R.id.verifyfingerprint_icon);
 
         currentdate = CommonUtils.getCollectionCurrentDateTime(CommonConstants.DATE_FORMAT_2);
         deleteDate = PrefUtil.getString(this, PREVIOUS_DELETE_DATE);
@@ -400,6 +402,7 @@ public class CollectionCenterHomeScreen extends OilPalmBaseActivity {
             }
         });
 
+
         //Sync On Click Listener
         syncRel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -411,6 +414,21 @@ public class CollectionCenterHomeScreen extends OilPalmBaseActivity {
                     UiUtils.backGroundSyncDilogue(CollectionCenterHomeScreen.this);
                 }
 
+            }
+        });
+        verifyfingerprint_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!SharedPrefManager.get_isDataSyncRunning()) {
+
+                    FragmentManager fm = getSupportFragmentManager();
+                    CollectionCenterHomeScreen.ChooseCollectionCenter registrationTypeChooser = ChooseCollectionCenter.newInstance(collectionCenterList, gpsVillageName, 1);
+                    registrationTypeChooser.show(fm, "fragment_edit_name");
+                    collectionType = Verify_Fingerprint;
+
+                } else {
+                    UiUtils.backGroundSyncDilogue(CollectionCenterHomeScreen.this);
+                }
             }
         });
 
@@ -629,7 +647,12 @@ public class CollectionCenterHomeScreen extends OilPalmBaseActivity {
                             mFragmentTransaction.replace(android.R.id.content, new SendStockTransfer());
                             mFragmentTransaction.addToBackStack("stock_transfer");
                             mFragmentTransaction.commit();
-                        } else {
+                        }
+                        else if(collectionType.equals(Verify_Fingerprint)){
+
+                            startActivity(new Intent(getActivity(), VerifyFingerPrint.class).setAction("Main Farmer"));
+                        }
+                        else {
                             mFragmentManager = getActivity().getSupportFragmentManager();
                             mFragmentTransaction = mFragmentManager.beginTransaction().setCustomAnimations(
                                     R.anim.enter_from_right, 0, 0, R.anim.exit_to_left
@@ -653,7 +676,12 @@ public class CollectionCenterHomeScreen extends OilPalmBaseActivity {
                             mFragmentTransaction.replace(android.R.id.content, new SendStockTransfer());
                             mFragmentTransaction.addToBackStack("stock_transfer");
                             mFragmentTransaction.commit();
-                        } else {
+                        }
+
+                        else if(collectionType.equals(Verify_Fingerprint)){
+
+                            startActivity(new Intent(getActivity(), VerifyFingerPrint.class).setAction("Main Farmer"));
+                        }else {
                             mFragmentManager = getActivity().getSupportFragmentManager();
                             mFragmentTransaction = mFragmentManager.beginTransaction().setCustomAnimations(
                                     R.anim.enter_from_right, 0, 0, R.anim.exit_to_left
@@ -668,6 +696,9 @@ public class CollectionCenterHomeScreen extends OilPalmBaseActivity {
                     }
                 }
             });
+
+
+
             return view;
         }
 

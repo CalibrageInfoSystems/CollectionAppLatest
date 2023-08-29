@@ -35,6 +35,9 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".collectioncenter.VerifyFingerPrint"
+            android:exported="false" />
+        <activity
             android:name=".GraderFingerprint.GraderFingerprint"
             android:exported="false" />
         <activity

@@ -608,5 +608,6 @@
     <string name="stock_transfer_report">Stock Transfer Report</string>
     <string name="details_">Details*</string>
     <string name="Grader_list">Grader List</string>
+    <string name="verify">Verify Fingerprints</string>
 
 </resources>

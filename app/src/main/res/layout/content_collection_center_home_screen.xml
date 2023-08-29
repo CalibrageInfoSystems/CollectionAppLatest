@@ -260,6 +260,56 @@
 
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/verifyFingerprint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+
+                    <ImageView
+                        android:id="@+id/verifyfingerprint_icon"
+                        android:layout_width="190dp"
+                        android:layout_height="190dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/logbook" />
+
+                    <TextView
+                        style="@style/moduleHomeBtnStyle"
+                        android:layout_below="@+id/verifyfingerprint_icon"
+                        android:text="Verify Fingerprints" />
+
+                </RelativeLayout>
+
+<!--                <RelativeLayout-->
+<!--                    android:id="@+id/log_updateFingerprint"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1">-->
+
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/fingerprint_icon"-->
+<!--                        android:layout_width="190dp"-->
+<!--                        android:layout_height="190dp"-->
+<!--                        android:layout_centerInParent="true"-->
+<!--                        android:src="@drawable/logbook" />-->
+
+<!--                    <TextView-->
+<!--                        style="@style/moduleHomeBtnStyle"-->
+<!--                        android:layout_below="@+id/fingerprint_icon"-->
+<!--                        android:text="Update Fingerprints" />-->
+
+<!--                </RelativeLayout>-->
+
+
+            </LinearLayout>
+
 
 
 

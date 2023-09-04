@@ -431,17 +431,17 @@ public class FarmersDetailsScreen extends OilPalmBaseActivity implements FarmerP
 //        }
 //    }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        //Play Store Log.d(TAG, "Enter onDestroy()");
-        sgfplib.CloseDevice();
-        mVerifyImage = null;
-        mVerifyTemplate = null;
-        sgfplib.Close();
-
-        //Play Store Log.d(TAG, "Exit onDestroy()");
-    }
+//    @Override
+//    public void onDestroy() {
+//        super.onDestroy();
+//        //Play Store Log.d(TAG, "Enter onDestroy()");
+//        sgfplib.CloseDevice();
+//        mVerifyImage = null;
+//        mVerifyTemplate = null;
+//        sgfplib.Close();
+//
+//        //Play Store Log.d(TAG, "Exit onDestroy()");
+//    }
 
     //Binding Data to UI Method
     public void bindDateToUi() {

@@ -90,7 +90,7 @@ import SecuGen.FDxSDKPro.SGAutoOnEventNotifier;
 import SecuGen.FDxSDKPro.SGFingerPresentEvent;
 
 
-public class NewWeighbridgeCC extends BaseFragment implements SGFingerPresentEvent {
+public class NewWeighbridgeCC extends BaseFragment{
     //  private ArrayList<CollectionCenter> collectionCenterArrayList = new ArrayList<>();
 
 
@@ -223,9 +223,9 @@ public class NewWeighbridgeCC extends BaseFragment implements SGFingerPresentEve
         mSize = new Point();
         display.getSize(mSize);
 
-        sgfplib = new JSGFPLib(getActivity(), (UsbManager) getActivity().getSystemService(Context.USB_SERVICE));
-
-        autoOn = new SGAutoOnEventNotifier(sgfplib, this);
+//        sgfplib = new JSGFPLib(getActivity(), (UsbManager) getActivity().getSystemService(Context.USB_SERVICE));
+//
+//        autoOn = new SGAutoOnEventNotifier(sgfplib, this);
 
     }
 
@@ -710,9 +710,9 @@ public class NewWeighbridgeCC extends BaseFragment implements SGFingerPresentEve
     }
 
 
-    @Override
-    public void SGFingerPresentCallback() {
-        autoOn.stop();
-        //fingerDetectedHandler.sendMessage(new Message());
-    }
+//    @Override
+//    public void SGFingerPresentCallback() {
+//        autoOn.stop();
+//        //fingerDetectedHandler.sendMessage(new Message());
+//    }
 }

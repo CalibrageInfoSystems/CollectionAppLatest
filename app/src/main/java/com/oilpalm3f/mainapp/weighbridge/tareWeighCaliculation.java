@@ -96,7 +96,7 @@ import SecuGen.FDxSDKPro.SGFingerPresentEvent;
 import SecuGen.FDxSDKPro.SGImpressionType;
 
 
-public class tareWeighCaliculation extends Fragment implements Runnable, SGFingerPresentEvent {
+public class tareWeighCaliculation extends Fragment {
     EditText tokenNoEt, number_of_bunches, number_of_bunches_rejected, number_of_bunches_accepted,
             remarks, grader_name;
     static EditText tare_weight;
@@ -177,29 +177,29 @@ public class tareWeighCaliculation extends Fragment implements Runnable, SGFinge
 
     }
 
-    private final BroadcastReceiver mUsbReceiver = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            //Log.d(TAG,"Enter mUsbReceiver.onReceive()");
-            if (ACTION_USB_PERMISSION.equals(action)) {
-                synchronized (this) {
-                    UsbDevice device = (UsbDevice)intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
-                    if (intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
-                        if(device != null){
-                            //DEBUG Log.d(TAG, "Vendor ID : " + device.getVendorId() + "\n");
-                            //DEBUG Log.d(TAG, "Product ID: " + device.getProductId() + "\n");
-                            /*debugMessage("USB BroadcastReceiver VID : " + device.getVendorId() + "\n");
-                            debugMessage("USB BroadcastReceiver PID: " + device.getProductId() + "\n");*/
-                        }
-                        else
-                            android.util.Log.e("TAG", "mUsbReceiver.onReceive() Device is null");
-                    }
-                    else
-                        android.util.Log.e("TAG", "mUsbReceiver.onReceive() permission denied for device " + device);
-                }
-            }
-        }
-    }; //Added by Arun dated 21st June
+//    private final BroadcastReceiver mUsbReceiver = new BroadcastReceiver() {
+//        public void onReceive(Context context, Intent intent) {
+//            String action = intent.getAction();
+//            //Log.d(TAG,"Enter mUsbReceiver.onReceive()");
+//            if (ACTION_USB_PERMISSION.equals(action)) {
+//                synchronized (this) {
+//                    UsbDevice device = (UsbDevice)intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+//                    if (intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
+//                        if(device != null){
+//                            //DEBUG Log.d(TAG, "Vendor ID : " + device.getVendorId() + "\n");
+//                            //DEBUG Log.d(TAG, "Product ID: " + device.getProductId() + "\n");
+//                            /*debugMessage("USB BroadcastReceiver VID : " + device.getVendorId() + "\n");
+//                            debugMessage("USB BroadcastReceiver PID: " + device.getProductId() + "\n");*/
+//                        }
+//                        else
+//                            android.util.Log.e("TAG", "mUsbReceiver.onReceive() Device is null");
+//                    }
+//                    else
+//                        android.util.Log.e("TAG", "mUsbReceiver.onReceive() permission denied for device " + device);
+//                }
+//            }
+//        }
+//    }; //Added by Arun dated 21st June
 
 
 
@@ -233,18 +233,18 @@ public class tareWeighCaliculation extends Fragment implements Runnable, SGFinge
 
         initViews();
 
-        sgfplib = new JSGFPLib(getActivity(), (UsbManager) getActivity().getSystemService(Context.USB_SERVICE));
-
-        autoOn = new SGAutoOnEventNotifier(sgfplib, this);
-        //USB Permissions
-        mPermissionIntent = PendingIntent.getBroadcast(getContext(), 0, new Intent(ACTION_USB_PERMISSION), 0);
-        filter = new IntentFilter(ACTION_USB_PERMISSION);
-        usbPermissionRequested = false;
-        bSecuGenDeviceOpened = false;
-        mNumFakeThresholds = new int[1];
-        mDefaultFakeThreshold = new int[1];
-        mFakeEngineReady = new boolean[1];
-        mMaxTemplateSize = new int[1];
+//        sgfplib = new JSGFPLib(getActivity(), (UsbManager) getActivity().getSystemService(Context.USB_SERVICE));
+//
+//        autoOn = new SGAutoOnEventNotifier(sgfplib, this);
+//        //USB Permissions
+//        mPermissionIntent = PendingIntent.getBroadcast(getContext(), 0, new Intent(ACTION_USB_PERMISSION), 0);
+//        filter = new IntentFilter(ACTION_USB_PERMISSION);
+//        usbPermissionRequested = false;
+//        bSecuGenDeviceOpened = false;
+//        mNumFakeThresholds = new int[1];
+//        mDefaultFakeThreshold = new int[1];
+//        mFakeEngineReady = new boolean[1];
+//        mMaxTemplateSize = new int[1];
 
         return view;
     }
@@ -557,15 +557,15 @@ public class tareWeighCaliculation extends Fragment implements Runnable, SGFinge
             }
         });
 
-        if (CommonConstants.IsFingerPrintReq == true && graderDetails.size() > 0){
-            takefingerprint.setVisibility(View.VISIBLE);
-            img_takefingerprint.setVisibility(View.VISIBLE);
-            grader_name.setFocusable(false);
-        }else{
-            takefingerprint.setVisibility(View.GONE);
-            img_takefingerprint.setVisibility(View.GONE);
-            grader_name.setFocusable(true);
-        }
+//        if (CommonConstants.IsFingerPrintReq == true && graderDetails.size() > 0){
+//            takefingerprint.setVisibility(View.VISIBLE);
+//            img_takefingerprint.setVisibility(View.VISIBLE);
+//            grader_name.setFocusable(false);
+//        }else{
+//            takefingerprint.setVisibility(View.GONE);
+//            img_takefingerprint.setVisibility(View.GONE);
+//            grader_name.setFocusable(true);
+//        }
 
 
     }
@@ -993,14 +993,20 @@ public class tareWeighCaliculation extends Fragment implements Runnable, SGFinge
         }
 
         if (TextUtils.isEmpty(grader_name.getText().toString())) {
-            if (CommonConstants.IsFingerPrintReq == true && graderDetails.size() > 0){
-                UiUtils.showCustomToastMessage("Please Take Fingerprint", getActivity(), 0);
-                return false;
-            }else{
+
                 UiUtils.showCustomToastMessage("Please Enter Grader Name", getActivity(), 0);
                 return false;
-            }
         }
+
+//        if (TextUtils.isEmpty(grader_name.getText().toString())) {
+//            if (CommonConstants.IsFingerPrintReq == true && graderDetails.size() > 0){
+//                UiUtils.showCustomToastMessage("Please Take Fingerprint", getActivity(), 0);
+//                return false;
+//            }else{
+//                UiUtils.showCustomToastMessage("Please Enter Grader Name", getActivity(), 0);
+//                return false;
+//            }
+//        }
         return true;
     }
 
@@ -1097,14 +1103,20 @@ public class tareWeighCaliculation extends Fragment implements Runnable, SGFinge
         }
 
         if (TextUtils.isEmpty(grader_name.getText().toString())) {
-            if (CommonConstants.IsFingerPrintReq == true && graderDetails.size() > 0){
-                UiUtils.showCustomToastMessage("Please Take Fingerprint", getActivity(), 0);
-                return false;
-            }else{
                 UiUtils.showCustomToastMessage("Please Enter Grader Name", getActivity(), 0);
                 return false;
-            }
+
         }
+
+//        if (TextUtils.isEmpty(grader_name.getText().toString())) {
+//            if (CommonConstants.IsFingerPrintReq == true && graderDetails.size() > 0){
+//                UiUtils.showCustomToastMessage("Please Take Fingerprint", getActivity(), 0);
+//                return false;
+//            }else{
+//                UiUtils.showCustomToastMessage("Please Enter Grader Name", getActivity(), 0);
+//                return false;
+//            }
+//        }
 
         return true;
     }
@@ -1200,145 +1212,145 @@ public class tareWeighCaliculation extends Fragment implements Runnable, SGFinge
             slip_image.invalidate();
         }
 
-        if (CommonConstants.IsFingerPrintReq == true && graderDetails.size() > 0) {
-
-            getContext().registerReceiver(mUsbReceiver, filter);
-            long error = sgfplib.Init( SGFDxDeviceName.SG_DEV_AUTO);
-            if (error != SGFDxErrorCode.SGFDX_ERROR_NONE){
-                AlertDialog.Builder dlgAlert = new AlertDialog.Builder(getActivity());
-                if (error == SGFDxErrorCode.SGFDX_ERROR_DEVICE_NOT_FOUND)
-                    dlgAlert.setMessage("The attached fingerprint device is not supported on Android");
-                else
-                    dlgAlert.setMessage("Fingerprint device initialization failed!");
-                dlgAlert.setTitle("SecuGen Fingerprint SDK");
-                dlgAlert.setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog,int whichButton){
-                                // getActivity().finish();
-                                return;
-                            }
-                        }
-                );
-                dlgAlert.setCancelable(false);
-                dlgAlert.create().show();
-            }
-            else {
-                UsbDevice usbDevice = sgfplib.GetUsbDevice();
-                if (usbDevice == null) {
-                    AlertDialog.Builder dlgAlert = new AlertDialog.Builder(getActivity());
-                    dlgAlert.setMessage("SecuGen fingerprint sensor not found!");
-                    dlgAlert.setTitle("SecuGen Fingerprint SDK");
-                    dlgAlert.setPositiveButton("OK",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    getActivity().finish();
-                                    return;
-                                }
-                            }
-                    );
-                    dlgAlert.setCancelable(false);
-                    dlgAlert.create().show();
-                } else {
-                    boolean hasPermission = sgfplib.GetUsbManager().hasPermission(usbDevice);
-                    if (!hasPermission) {
-                        if (!usbPermissionRequested) {
-                            //Log.d(TAG, "Call GetUsbManager().requestPermission()");
-                            usbPermissionRequested = true;
-                            sgfplib.GetUsbManager().requestPermission(usbDevice, mPermissionIntent);
-                        } else {
-                            //wait up to 20 seconds for the system to grant USB permission
-                            hasPermission = sgfplib.GetUsbManager().hasPermission(usbDevice);
-                            int i = 0;
-                            while ((hasPermission == false) && (i <= 40)) {
-                                ++i;
-                                hasPermission = sgfplib.GetUsbManager().hasPermission(usbDevice);
-                                try {
-                                    Thread.sleep(500);
-                                    sgfplib.GetUsbManager().requestPermission(usbDevice, mPermissionIntent);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                                //Log.d(TAG, "Waited " + i*50 + " milliseconds for USB permission");
-                            }
-                        }
-                    }
-                    if (hasPermission) {
-                        error = sgfplib.OpenDevice(0);
-                        if (error == SGFDxErrorCode.SGFDX_ERROR_NONE) {
-                            bSecuGenDeviceOpened = true;
-                            SecuGen.FDxSDKPro.SGDeviceInfoParam deviceInfo = new SecuGen.FDxSDKPro.SGDeviceInfoParam();
-                            error = sgfplib.GetDeviceInfo(deviceInfo);
-                            mImageWidth = deviceInfo.imageWidth;
-                            mImageHeight = deviceInfo.imageHeight;
-                            mImageDPI = deviceInfo.imageDPI;
-                            sgfplib.SetLedOn(true);
-                            autoOn.start();
-
-                            error = sgfplib.FakeDetectionCheckEngineStatus(mFakeEngineReady);
-                            if (mFakeEngineReady[0]) {
-                                error = sgfplib.FakeDetectionGetNumberOfThresholds(mNumFakeThresholds);
-                                if (error != SGFDxErrorCode.SGFDX_ERROR_NONE)
-                                    mNumFakeThresholds[0] = 1; //0=Off, 1=TouchChip
-
-                                error = sgfplib.FakeDetectionGetDefaultThreshold(mDefaultFakeThreshold);
-                                mFakeDetectionLevel = mDefaultFakeThreshold[0];
-
-                                //error = this.sgfplib.SetFakeDetectionLevel(mFakeDetectionLevel);
-                                //debugMessage("Ret[" + error + "] Set Fake Threshold: " + mFakeDetectionLevel + "\n");
-
-
-                                double[] thresholdValue = new double[1];
-                                error = sgfplib.FakeDetectionGetThresholdValue(thresholdValue);
-                            } else {
-                                mNumFakeThresholds[0] = 1;        //0=Off, 1=Touch Chip
-                                mDefaultFakeThreshold[0] = 1;    //Touch Chip Enabled
-                            }
-
-                            sgfplib.SetTemplateFormat(SGFDxTemplateFormat.TEMPLATE_FORMAT_ISO19794);
-                            sgfplib.GetMaxTemplateSize(mMaxTemplateSize);
-                            mVerifyTemplate = new byte[(int) mMaxTemplateSize[0]];
-                            boolean smartCaptureEnabled = true;
-                            if (smartCaptureEnabled)
-                                sgfplib.WriteData(SGFDxConstant.WRITEDATA_COMMAND_ENABLE_SMART_CAPTURE, (byte) 1);
-                            else
-                                sgfplib.WriteData(SGFDxConstant.WRITEDATA_COMMAND_ENABLE_SMART_CAPTURE, (byte) 0);
-                            if (mAutoOnEnabled) {
-                                autoOn.start();
-                            }
-                        } else {
-                        }
-                    }
-                }
-            }
-        }
+//        if (CommonConstants.IsFingerPrintReq == true && graderDetails.size() > 0) {
+//
+//            getContext().registerReceiver(mUsbReceiver, filter);
+//            long error = sgfplib.Init( SGFDxDeviceName.SG_DEV_AUTO);
+//            if (error != SGFDxErrorCode.SGFDX_ERROR_NONE){
+//                AlertDialog.Builder dlgAlert = new AlertDialog.Builder(getActivity());
+//                if (error == SGFDxErrorCode.SGFDX_ERROR_DEVICE_NOT_FOUND)
+//                    dlgAlert.setMessage("The attached fingerprint device is not supported on Android");
+//                else
+//                    dlgAlert.setMessage("Fingerprint device initialization failed!");
+//                dlgAlert.setTitle("SecuGen Fingerprint SDK");
+//                dlgAlert.setPositiveButton("OK",
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog,int whichButton){
+//                                // getActivity().finish();
+//                                return;
+//                            }
+//                        }
+//                );
+//                dlgAlert.setCancelable(false);
+//                dlgAlert.create().show();
+//            }
+//            else {
+//                UsbDevice usbDevice = sgfplib.GetUsbDevice();
+//                if (usbDevice == null) {
+//                    AlertDialog.Builder dlgAlert = new AlertDialog.Builder(getActivity());
+//                    dlgAlert.setMessage("SecuGen fingerprint sensor not found!");
+//                    dlgAlert.setTitle("SecuGen Fingerprint SDK");
+//                    dlgAlert.setPositiveButton("OK",
+//                            new DialogInterface.OnClickListener() {
+//                                public void onClick(DialogInterface dialog, int whichButton) {
+//                                    getActivity().finish();
+//                                    return;
+//                                }
+//                            }
+//                    );
+//                    dlgAlert.setCancelable(false);
+//                    dlgAlert.create().show();
+//                } else {
+//                    boolean hasPermission = sgfplib.GetUsbManager().hasPermission(usbDevice);
+//                    if (!hasPermission) {
+//                        if (!usbPermissionRequested) {
+//                            //Log.d(TAG, "Call GetUsbManager().requestPermission()");
+//                            usbPermissionRequested = true;
+//                            sgfplib.GetUsbManager().requestPermission(usbDevice, mPermissionIntent);
+//                        } else {
+//                            //wait up to 20 seconds for the system to grant USB permission
+//                            hasPermission = sgfplib.GetUsbManager().hasPermission(usbDevice);
+//                            int i = 0;
+//                            while ((hasPermission == false) && (i <= 40)) {
+//                                ++i;
+//                                hasPermission = sgfplib.GetUsbManager().hasPermission(usbDevice);
+//                                try {
+//                                    Thread.sleep(500);
+//                                    sgfplib.GetUsbManager().requestPermission(usbDevice, mPermissionIntent);
+//                                } catch (InterruptedException e) {
+//                                    e.printStackTrace();
+//                                }
+//                                //Log.d(TAG, "Waited " + i*50 + " milliseconds for USB permission");
+//                            }
+//                        }
+//                    }
+//                    if (hasPermission) {
+//                        error = sgfplib.OpenDevice(0);
+//                        if (error == SGFDxErrorCode.SGFDX_ERROR_NONE) {
+//                            bSecuGenDeviceOpened = true;
+//                            SecuGen.FDxSDKPro.SGDeviceInfoParam deviceInfo = new SecuGen.FDxSDKPro.SGDeviceInfoParam();
+//                            error = sgfplib.GetDeviceInfo(deviceInfo);
+//                            mImageWidth = deviceInfo.imageWidth;
+//                            mImageHeight = deviceInfo.imageHeight;
+//                            mImageDPI = deviceInfo.imageDPI;
+//                            sgfplib.SetLedOn(true);
+//                            autoOn.start();
+//
+//                            error = sgfplib.FakeDetectionCheckEngineStatus(mFakeEngineReady);
+//                            if (mFakeEngineReady[0]) {
+//                                error = sgfplib.FakeDetectionGetNumberOfThresholds(mNumFakeThresholds);
+//                                if (error != SGFDxErrorCode.SGFDX_ERROR_NONE)
+//                                    mNumFakeThresholds[0] = 1; //0=Off, 1=TouchChip
+//
+//                                error = sgfplib.FakeDetectionGetDefaultThreshold(mDefaultFakeThreshold);
+//                                mFakeDetectionLevel = mDefaultFakeThreshold[0];
+//
+//                                //error = this.sgfplib.SetFakeDetectionLevel(mFakeDetectionLevel);
+//                                //debugMessage("Ret[" + error + "] Set Fake Threshold: " + mFakeDetectionLevel + "\n");
+//
+//
+//                                double[] thresholdValue = new double[1];
+//                                error = sgfplib.FakeDetectionGetThresholdValue(thresholdValue);
+//                            } else {
+//                                mNumFakeThresholds[0] = 1;        //0=Off, 1=Touch Chip
+//                                mDefaultFakeThreshold[0] = 1;    //Touch Chip Enabled
+//                            }
+//
+//                            sgfplib.SetTemplateFormat(SGFDxTemplateFormat.TEMPLATE_FORMAT_ISO19794);
+//                            sgfplib.GetMaxTemplateSize(mMaxTemplateSize);
+//                            mVerifyTemplate = new byte[(int) mMaxTemplateSize[0]];
+//                            boolean smartCaptureEnabled = true;
+//                            if (smartCaptureEnabled)
+//                                sgfplib.WriteData(SGFDxConstant.WRITEDATA_COMMAND_ENABLE_SMART_CAPTURE, (byte) 1);
+//                            else
+//                                sgfplib.WriteData(SGFDxConstant.WRITEDATA_COMMAND_ENABLE_SMART_CAPTURE, (byte) 0);
+//                            if (mAutoOnEnabled) {
+//                                autoOn.start();
+//                            }
+//                        } else {
+//                        }
+//                    }
+//                }
+//            }
+//        }
 
 
     }
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        android.util.Log.d("TAG", "Enter onPause()");
-
-        if (CommonConstants.IsFingerPrintReq == true && graderDetails.size() > 0) {
-
-            if (bSecuGenDeviceOpened) {
-                autoOn.stop();
-                sgfplib.CloseDevice();
-                bSecuGenDeviceOpened = false;
-            }
-            getContext().unregisterReceiver(mUsbReceiver);
-//        mRegisterImage = null;
-//        mVerifyImage = null;
-//        mRegisterTemplate = null;
-//        mVerifyTemplate = null;
-//        mImageViewFingerprint.setImageBitmap(grayBitmap);
-//        mImageViewRegister.setImageBitmap(grayBitmap);
-//        mImageViewVerify.setImageBitmap(grayBitmap);
-
-            android.util.Log.d("TAG", "Exit onPause()");
-        }
-    }
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//
+//        android.util.Log.d("TAG", "Enter onPause()");
+//
+//        if (CommonConstants.IsFingerPrintReq == true && graderDetails.size() > 0) {
+//
+//            if (bSecuGenDeviceOpened) {
+//                autoOn.stop();
+//                sgfplib.CloseDevice();
+//                bSecuGenDeviceOpened = false;
+//            }
+//            getContext().unregisterReceiver(mUsbReceiver);
+////        mRegisterImage = null;
+////        mVerifyImage = null;
+////        mRegisterTemplate = null;
+////        mVerifyTemplate = null;
+////        mImageViewFingerprint.setImageBitmap(grayBitmap);
+////        mImageViewRegister.setImageBitmap(grayBitmap);
+////        mImageViewVerify.setImageBitmap(grayBitmap);
+//
+//            android.util.Log.d("TAG", "Exit onPause()");
+//        }
+//    }
 
 
     private void loadImageFromStorage(String path) {
@@ -1434,13 +1446,13 @@ public class tareWeighCaliculation extends Fragment implements Runnable, SGFinge
 
         } // switch
     }
-    @Override
-    public void SGFingerPresentCallback() {
-        autoOn.stop();
-        //sgfplib.SetLedOn(true);
-        Log.d("Fingerprint", "taken");
-        VerifyFingerPrint();
-    }//Added by Arun dated 21st June
+//    @Override
+//    public void SGFingerPresentCallback() {
+//        autoOn.stop();
+//        //sgfplib.SetLedOn(true);
+//        Log.d("Fingerprint", "taken");
+//        VerifyFingerPrint();
+//    }//Added by Arun dated 21st June
 
 //    public void onResume(){
 //        Log.d("TAG", "Enter onResume()");
@@ -1703,8 +1715,8 @@ public class tareWeighCaliculation extends Fragment implements Runnable, SGFinge
         return bmpGrayscale;
     }
 
-    @Override
-    public void run() {
-
-    }
+//    @Override
+//    public void run() {
+//
+//    }
 }

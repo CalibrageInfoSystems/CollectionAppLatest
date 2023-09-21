@@ -984,7 +984,17 @@ private static void upgradeDb25(final Context context, final SQLiteDatabase db) 
     String column8 = "Alter Table Plot Add PreProspectiveReasonTypeId INT";
     String column9 = "Alter Table Plot Add PlotUprootmentStatusTypeId INT";
 
-
+    String GraderAttendance ="CREATE TABLE GraderAttendance("+
+            "Id    INTEGER    PRIMARY KEY AUTOINCREMENT,\n"+
+            "GraderCode VARCHAR(50) NOT NULL,\n"+
+            "CCCode VARCHAR(10) NOT NULL,\n"+
+            "ValidDate DateTime NOT NULL,\n"+
+            "CreatedByUserId INT NOT NULl,\n"+
+            "CreatedDate DateTime NOT NULL,\n"+
+            "ServerUpdatedStatus bit NOT NULL \n"+
+            ");";
+  //  String column10 = "Alter Table GraderAttendance Add CCCode VARCHAR(10) NOT NULL";
+   // String column10 = "ALTER TABLE GraderAttendance Add CCCode VARCHAR(10)";
     try {
         //for error logs
         db.execSQL(ErrorLogTable);
@@ -996,6 +1006,8 @@ private static void upgradeDb25(final Context context, final SQLiteDatabase db) 
         db.execSQL(column7);
         db.execSQL(column8);
         db.execSQL(column9);
+        db.execSQL(GraderAttendance);
+     //   db.execSQL(column10);
 
     } catch (Exception e) {
         e.printStackTrace();

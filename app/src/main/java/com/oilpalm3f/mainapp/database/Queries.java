@@ -843,6 +843,9 @@ public String gettitleQuery() {
         return "Select Code,IsStockUpdate,UpdatedByUserId,UpdatedDate from StockTransferReceive where ServerUpdatedStatus = 'false' ";
     }
 
+    public String getGraderAttendanceRefreshQuery(){
+        return "Select GraderCode,ValidDate ,CreatedByUserId ,CreatedDate , ServerUpdatedStatus,CCCode from GraderAttendance  where ServerUpdatedStatus = 'false' ";
+    }
     public String getConsignementStatusHistoryRefreshQuery() {
         return "select ConsignmentCode ,StatusTypeId,OperatorName,Comments,IsActive,CreatedByUserId,CreatedDate,UpdatedByUserId," +
                 "UpdatedDate,ServerUpdatedStatus from ConsignmentStatusHistory where ServerUpdatedStatus='false'";
@@ -1192,9 +1195,16 @@ public String gettitleQuery() {
                 "    RoleId ="+user_roleID+ " AND ar.Id = 114";
     }
 
+
+
     public String getActiveGraders(String seachKey, int offset, int limit) {
         return "Select Gr.Code as GraderCode ,Gr.Name as GraderName,Gr.MobileNumber,v.Name VillageName from Grader Gr\n" +
                 "INNER JOIN Village v on Gr.VillageId = v.Id where Gr.IsActive = 'true' AND (Gr.Name like '%" + seachKey + "%'or Gr.MobileNumber like'%" + seachKey + "%' )";
+    }
+
+    public String getGraderAttendanceforlastonehour(String CCCode, String currentDateTimeString, String oneHourBackDateTimeString) {
+        return "\t  select count() from GraderAttendance where CCCode = '"+CCCode+"' AND  ValidDate >= '"+oneHourBackDateTimeString+"'\n" +
+                "      AND ValidDate <='"+currentDateTimeString+"';\n";
     }
 }
 

@@ -35,6 +35,7 @@ import com.oilpalm3f.mainapp.database.DataAccessHandler;
 import com.oilpalm3f.mainapp.database.DatabaseKeys;
 import com.oilpalm3f.mainapp.database.Queries;
 import com.oilpalm3f.mainapp.dbmodels.CollectionClass;
+import com.oilpalm3f.mainapp.dbmodels.GraderAttendance;
 import com.oilpalm3f.mainapp.dbmodels.ImageDetails;
 import com.oilpalm3f.mainapp.dbmodels.Address;
 import com.oilpalm3f.mainapp.dbmodels.Farmer;
@@ -91,8 +92,8 @@ public class DataSyncHelper {
     private static int MAX_COUNT = 5000;
     private static boolean isFailedForAnyTable = false;
     public static boolean isSyncFinished = false;
-    //public static String PREVIOUS_SYNC_DATE = "previous_sync_date";
-    public static String PREVIOUS_SYNC_DATE = null;
+    public static String PREVIOUS_SYNC_DATE = "previous_sync_date";
+    //public static String PREVIOUS_SYNC_DATE = null;
     private static List<FileRepository> totalFileRepositoryList = new ArrayList<>();
     private static ProgressDialogFragment progressDialogFragment;
     private static final String USER_AGENT = "Mozilla/5.0";
@@ -501,9 +502,11 @@ public class DataSyncHelper {
         List<VisitLog> visitLogList = (List<VisitLog>) ccdataAccessHandler.getVisitLogData(Queries.getInstance().getVistLogs());
         List<UserSync> userSylist=(List<UserSync>)ccdataAccessHandler.getUserSyncData(Queries.getInstance().getUserSyncDetails());
         List<StockReceiveRefresh> stocktransferreceive=(List<StockReceiveRefresh>)ccdataAccessHandler.getStockTransferReceive();
+        List<GraderAttendance> graderAttendance =(List<GraderAttendance >)ccdataAccessHandler.getgraderAttendancedata();
 
 
         LinkedHashMap<String, List> allCCDataMap = new LinkedHashMap<>();
+
 
         allCCDataMap.put(DatabaseKeys.TABLE_STOCK_TRANSFER,stockTransferList);
         allCCDataMap.put(DatabaseKeys.TABLE_COLLECTION,collectionDetailsRefresh.getCollectionList());
@@ -515,6 +518,7 @@ public class DataSyncHelper {
         allCCDataMap.put(DatabaseKeys.TABLE_VisitLog,visitLogList);
         allCCDataMap.put(DatabaseKeys.TABLE_Userync,userSylist);
         allCCDataMap.put(DatabaseKeys.TABLE_STOCK_RECEIVE,stocktransferreceive);
+        allCCDataMap.put(DatabaseKeys.GraderAttendance,graderAttendance);
 
 
         onComplete.execute(true, allCCDataMap,collectionDetailsRefresh.getData());

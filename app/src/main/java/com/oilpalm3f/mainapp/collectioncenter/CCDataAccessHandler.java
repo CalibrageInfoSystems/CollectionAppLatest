@@ -24,6 +24,7 @@ import com.oilpalm3f.mainapp.database.DatabaseKeys;
 import com.oilpalm3f.mainapp.database.Palm3FoilDatabase;
 import com.oilpalm3f.mainapp.database.Queries;
 import com.oilpalm3f.mainapp.dbmodels.CollectionClass;
+import com.oilpalm3f.mainapp.dbmodels.GraderAttendance;
 import com.oilpalm3f.mainapp.dbmodels.ImageDetails;
 import com.oilpalm3f.mainapp.dbmodels.PlotDetailsObj;
 import com.oilpalm3f.mainapp.dbmodels.UserSync;
@@ -972,6 +973,36 @@ public class CCDataAccessHandler {
         }
         Log.i(LOG_TAG, "" + cursor.getCount());
         return null;
+    }
+
+    public List<GraderAttendance> getgraderAttendancedata(){
+        List<GraderAttendance> graderAttendanceList = new ArrayList<>();
+        Cursor cursor = null;
+        String query = Queries.getInstance().getGraderAttendanceRefreshQuery();
+        try {
+            cursor = mDatabase.rawQuery(query,null);
+            if (cursor != null && cursor.moveToFirst()){
+                do {
+                    GraderAttendance graderAttendance = new GraderAttendance();
+                    graderAttendance.setGraderCode(cursor.getString(0));
+                    graderAttendance.setValidDate(cursor.getString(1));
+                    graderAttendance.setCreatedByUserId(cursor.getInt(2));
+                    graderAttendance.setCreatedDate(cursor.getString(3));
+                    boolean value = (cursor.getString(4) == "false");
+                    graderAttendance.setServerUpdatedStatus(value);
+          graderAttendance.setCCCode(cursor.getString(5));
+                    graderAttendanceList.add(graderAttendance);
+
+                }while (cursor.moveToNext());
+            }
+        }catch (SQLiteException se){
+            se.printStackTrace();
+        }finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return graderAttendanceList;
     }
 
     }

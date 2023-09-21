@@ -1003,7 +1003,51 @@ public class WeighbridgeCC extends BaseFragment  {
         Calendar c = Calendar.getInstance();
         SimpleDateFormat objdateformat = new SimpleDateFormat(CommonConstants.DATE_FORMAT_DDMMYYYY_HHMMSS, Locale.US);
         postedDateAndTimeStr = objdateformat.format(c.getTime());
+        if (CommonConstants.IsFingerPrintReq == true && graderDetails.size() > 0 ){
+            // Get the current date and time
+            Date currentDate = new Date();
 
+            // Subtract one hour from the current date and time
+            Calendar calendarr = Calendar.getInstance();
+            calendarr.setTime(currentDate);
+            calendarr.add(Calendar.HOUR_OF_DAY, -1);
+            Date oneHourBack = calendarr.getTime();
+
+            // Format the dates as strings (you can adjust the format as needed)
+            SimpleDateFormat dateFormatt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String currentDateTimeString = dateFormatt.format(currentDate);
+            String oneHourBackDateTimeString = dateFormatt.format(oneHourBack);
+            Log.d("currentDateTimeString",currentDateTimeString+"");
+            Log.d("oneHourBackDateTimeString",oneHourBackDateTimeString+"");
+
+            String result= dataAccessHandler.getCountValue(Queries.getInstance().getGraderAttendanceforlastonehour(selectedCollectionCenter.getCode(),currentDateTimeString,oneHourBackDateTimeString));
+
+            Log.d("result==1025",result+"");
+            if (result.equalsIgnoreCase("0")) {
+                {
+                    AlertDialog.Builder dialog=new AlertDialog.Builder(getActivity());
+                    dialog.setMessage("Fingerprint is not verified for this Collection Center from last 1 hour ");
+                    dialog.setPositiveButton("OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    //    Toast.makeText(getActivity(),"Yes is clicked",Toast.LENGTH_LONG).show();
+                                }
+                            });
+
+                    AlertDialog alertDialog=dialog.create();
+                    alertDialog.show();
+                }
+
+            }
+            else
+            {
+                Log.d("result==1045",result+"");
+            }
+            }// Set visibility to gone
+
+
+        }
 
 //        if (CommonConstants.IsFingerPrintReq == true && graderDetails.size() > 0){
 //            takefingerprint.setVisibility(View.VISIBLE);
@@ -1166,7 +1210,7 @@ public class WeighbridgeCC extends BaseFragment  {
 //
 //            }
 //        });
-    }
+
 
     //Enabling/Disabling NetWeight Field
     public void enableNetWeight() {

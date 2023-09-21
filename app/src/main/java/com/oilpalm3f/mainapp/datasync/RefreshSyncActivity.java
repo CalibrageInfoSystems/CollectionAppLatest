@@ -55,7 +55,7 @@ public class RefreshSyncActivity extends AppCompatActivity implements View.OnCli
     private static final String LOG_TAG = RefreshSyncActivity.class.getName();
     private static int consignmentCount = 0, collectionsCount = 0, collectionPlotsCountInt = 0,collectionsWithOutPlotCount = 0;
     private TextView tvcollectiondetails,stCount, tvcollectionplot, tvconsignment,
-            tvconsignmenthistory, imagesCount,msg,stReceiveCount,logCount;
+            tvconsignmenthistory, imagesCount,msg,stReceiveCount,logCount,GraderAttendance;
     private Button btnsend, btnmastersync, btnDBcopy, transSyncBtn, btresetdatabase, yesDialogButton, noDialogButton;
     private DataAccessHandler dataAccessHandler;
     private List<String> collectionCodes, consignmentCodes,CollectionWithoutPlotCodes;
@@ -126,6 +126,7 @@ public class RefreshSyncActivity extends AppCompatActivity implements View.OnCli
         tvcollectionplot = (TextView) findViewById(R.id.tvcollectionplot);
         tvconsignment = (TextView) findViewById(R.id.tvconsignment);
         logCount = findViewById(R.id.logCount);
+        GraderAttendance = findViewById(R.id.GraderAttendance);
         btnsend = (Button) findViewById(R.id.btsynctoserver);
         btnmastersync = (Button) findViewById(R.id.btnmastersync);
         btnDBcopy = (Button) findViewById(R.id.btcopydatabase);
@@ -254,6 +255,7 @@ public class RefreshSyncActivity extends AppCompatActivity implements View.OnCli
             tvcollectionplot.setText(dataAccessHandler.getCountValue(Queries.getInstance().getRefreshCountQuery("CollectionPlotXref")));
             tvconsignment.setText(dataAccessHandler.getCountValue(Queries.getInstance().getRefreshCountQuery("Consignment")));
             tvconsignmenthistory.setText(dataAccessHandler.getCountValue(Queries.getInstance().getRefreshCountQuery("ConsignmentStatusHistory")));
+            GraderAttendance.setText(dataAccessHandler.getCountValue(Queries.getInstance().getRefreshCountQuery("GraderAttendance")));
             imagesCount.setText(dataAccessHandler.getCountValue(Queries.getInstance().getRefreshCountQueryForPictures()));
             logCount.setText(dataAccessHandler.getCountValue(Queries.getInstance().getContVisitLog()));
         } catch (Exception e) {

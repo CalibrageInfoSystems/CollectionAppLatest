@@ -29,6 +29,7 @@ import com.oilpalm3f.mainapp.R;
 import com.oilpalm3f.mainapp.cloudhelper.APiInterface;
 import com.oilpalm3f.mainapp.cloudhelper.RetrofitClient;
 import com.oilpalm3f.mainapp.collectioncenter.CollectionCenterHomeScreen;
+import com.oilpalm3f.mainapp.collectioncenter.VerifyFingerPrint;
 import com.oilpalm3f.mainapp.common.CommonUtils;
 import com.oilpalm3f.mainapp.dbmodels.FingerprintModel;
 import com.oilpalm3f.mainapp.ui.LoginScreen;
@@ -52,6 +53,11 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import SecuGen.FDxSDKPro.JSGFPLib;
 import SecuGen.FDxSDKPro.SGAutoOnEventNotifier;
@@ -347,50 +353,177 @@ public class GraderFingerprint extends AppCompatActivity implements Runnable, SG
                     }
                 }
                 if (hasPermission) {
-                    error = sgfplib.OpenDevice(0);
-                    if (error == SGFDxErrorCode.SGFDX_ERROR_NONE)
-                    {
-                        bSecuGenDeviceOpened = true;
-                        SecuGen.FDxSDKPro.SGDeviceInfoParam deviceInfo = new SecuGen.FDxSDKPro.SGDeviceInfoParam();
-                        error = sgfplib.GetDeviceInfo(deviceInfo);
-                        mImageWidth = deviceInfo.imageWidth;
-                        mImageHeight= deviceInfo.imageHeight;
-                        mImageDPI = deviceInfo.imageDPI;
-
-                        error = sgfplib.FakeDetectionCheckEngineStatus(mFakeEngineReady);
-                        if (mFakeEngineReady[0]) {
-                            error = sgfplib.FakeDetectionGetNumberOfThresholds(mNumFakeThresholds);
-                            if (error != SGFDxErrorCode.SGFDX_ERROR_NONE)
-                                mNumFakeThresholds[0] = 1; //0=Off, 1=TouchChip
-
-                            error = sgfplib.FakeDetectionGetDefaultThreshold(mDefaultFakeThreshold);
-                            mFakeDetectionLevel = mDefaultFakeThreshold[0];
-
-                            //error = this.sgfplib.SetFakeDetectionLevel(mFakeDetectionLevel);
-                            //debugMessage("Ret[" + error + "] Set Fake Threshold: " + mFakeDetectionLevel + "\n");
 
 
-                            double[] thresholdValue = new double[1];
-                            error = sgfplib.FakeDetectionGetThresholdValue(thresholdValue);
+
+                    if (sgfplib != null) {
+                        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+                        try {
+                            error = executor.submit(() -> sgfplib.OpenDevice(0)).get(10, TimeUnit.SECONDS);
+
+                            if (error == SGFDxErrorCode.SGFDX_ERROR_NONE) {
+
+                                bSecuGenDeviceOpened = true;
+                                SecuGen.FDxSDKPro.SGDeviceInfoParam deviceInfo = new SecuGen.FDxSDKPro.SGDeviceInfoParam();
+//
+                                if (deviceInfo != null) {
+
+                                    Future<Long> future = executor.submit(() -> sgfplib.GetDeviceInfo(deviceInfo));
+
+                                    try {
+                                        error = future.get(10, TimeUnit.SECONDS); // Set the timeout duration
+                                        // Handle the error value or success scenario
+                                    } catch (TimeoutException e) {
+                                        // Handle the timeout situation
+                                        // You can log a message, cancel the operation, or perform other actions
+                                    } catch (InterruptedException | ExecutionException e) {
+                                        // Handle exceptions that might occur during the operation
+                                    } finally {
+                                        future.cancel(true); // Cancel the operation if it's still running
+                                        executor.shutdown(); // Shut down the executor service
+                                    }
+                                    //   android.util.Log.e("==========>431", error + "");
+                                    //   Toast.makeText(VerifyFingerPrint.this, String.valueOf(error)+"Roja", Toast.LENGTH_SHORT).show();
+                                    mImageWidth = deviceInfo.imageWidth;
+                                    mImageHeight = deviceInfo.imageHeight;
+                                    mImageDPI = deviceInfo.imageDPI;
+                                    sgfplib.SetLedOn(true);
+                                    autoOn.start();
+                                }
+                                ExecutorService executor2 = Executors.newSingleThreadExecutor();
+                                Future<Long> future2 = executor2.submit(() -> {
+                                    sgfplib.FakeDetectionCheckEngineStatus(mFakeEngineReady);
+                                    return 0L; // Return a value since Future requires a return type
+                                });
+
+                                try {
+                                    error = future2.get(10, TimeUnit.SECONDS); // Set the timeout duration
+                                    // Handle the error value or success scenario
+                                } catch (TimeoutException e) {
+                                    // Handle the timeout situation
+                                    // You can log a message, cancel the operation, or perform other actions
+                                    error = SGFDxErrorCode.SGFDX_ERROR_TIME_OUT; // Set a timeout error code
+                                } catch (InterruptedException | ExecutionException e) {
+                                    // Handle exceptions that might occur during the operation
+                                    error = SGFDxErrorCode.SGFDX_ERROR_FUNCTION_FAILED; // Set an appropriate error code
+                                } finally {
+                                    future2.cancel(true); // Cancel the operation if it's still running
+                                    //  executor2.shutdown(); // Shut down the executor service
+                                }
+
+                                // error = sgfplib.FakeDetectionCheckEngineStatus(mFakeEngineReady);
+
+                                if (mFakeEngineReady[0]) {
+                                    ExecutorService executor3 = Executors.newSingleThreadExecutor();
+                                    Future<Long> future3 = executor3.submit(() -> sgfplib.FakeDetectionGetNumberOfThresholds(mNumFakeThresholds));
+
+                                    try {
+                                        error = future3.get(10, TimeUnit.SECONDS); // Set the timeout duration
+                                        // Handle the error value or success scenario
+                                    } catch (TimeoutException e) {
+                                        // Handle the timeout situation
+                                        // You can log a message, cancel the operation, or perform other actions
+                                        error = SGFDxErrorCode.SGFDX_ERROR_TIME_OUT; // Set a timeout error code
+                                    } catch (InterruptedException | ExecutionException e) {
+                                        // Handle exceptions that might occur during the operation
+                                        error = SGFDxErrorCode.SGFDX_ERROR_FUNCTION_FAILED; // Set an appropriate error code
+                                    } finally {
+                                        future3.cancel(true); // Cancel the operation if it's still running
+                                    }
+
+                                    if (error != SGFDxErrorCode.SGFDX_ERROR_NONE)
+                                        mNumFakeThresholds[0] = 1; //0=Off, 1=TouchChip
+
+                                    ExecutorService executor4 = Executors.newSingleThreadExecutor();
+                                    Future<Long> future4 = executor4.submit(() -> sgfplib.FakeDetectionGetDefaultThreshold(mDefaultFakeThreshold));
+
+                                    try {
+                                        error = future4.get(10, TimeUnit.SECONDS); // Set the timeout duration
+                                        // Handle the error value or success scenario
+                                    } catch (TimeoutException e) {
+                                        // Handle the timeout situation
+                                        // You can log a message, cancel the operation, or perform other actions
+                                        error = SGFDxErrorCode.SGFDX_ERROR_TIME_OUT; // Set a timeout error code
+                                    } catch (InterruptedException | ExecutionException e) {
+                                        // Handle exceptions that might occur during the operation
+                                        error = SGFDxErrorCode.SGFDX_ERROR_FUNCTION_FAILED; // Set an appropriate error code
+                                    } finally {
+                                        future4.cancel(true); // Cancel the operation if it's still running
+                                    }
+
+                                    //	error = sgfplib.OpenDevice(0);
+                                    android.util.Log.e("==========>408", error + "");
+
+                                    // error = sgfplib.FakeDetectionGetDefaultThreshold(mDefaultFakeThreshold);
+                                    mFakeDetectionLevel = mDefaultFakeThreshold[0];
+
+                                    //error = this.sgfplib.SetFakeDetectionLevel(mFakeDetectionLevel);
+                                    //debugMessage("Ret[" + error + "] Set Fake Threshold: " + mFakeDetectionLevel + "\n");
+
+
+                                    double[] thresholdValue = new double[1];
+                                    ExecutorService executor5 = Executors.newSingleThreadExecutor();
+                                    Future<Long> future5 = executor5.submit(() -> sgfplib.FakeDetectionGetThresholdValue(thresholdValue));
+
+                                    try {
+                                        error = future5.get(10, TimeUnit.SECONDS); // Set the timeout duration
+                                        // Handle the error value or success scenario
+                                    } catch (TimeoutException e) {
+                                        // Handle the timeout situation
+                                        // You can log a message, cancel the operation, or perform other actions
+                                    } catch (InterruptedException | ExecutionException e) {
+                                        // Handle exceptions that might occur during the operation
+                                    } finally {
+                                        future5.cancel(true); // Cancel the operation if it's still running
+                                        // executor5.shutdown(); // Shut down the executor service
+                                    }
+
+
+                                    // error = sgfplib.FakeDetectionGetThresholdValue(thresholdValue);
+                                }
+                                  else {
+                                        mNumFakeThresholds[0] = 1;        //0=Off, 1=Touch Chip
+                                        mDefaultFakeThreshold[0] = 1;    //Touch Chip Enabled
+                                    }
+
+                                    sgfplib.SetTemplateFormat(SGFDxTemplateFormat.TEMPLATE_FORMAT_ISO19794);
+                                    sgfplib.GetMaxTemplateSize(mMaxTemplateSize);
+                                    mRegisterTemplate = new byte[(int) mMaxTemplateSize[0]];
+                                    mRegisterTemplate2 = new byte[(int) mMaxTemplateSize[0]];
+                                    mRegisterTemplate3 = new byte[(int) mMaxTemplateSize[0]];
+
+
+                                    if (mAutoOnEnabled) {
+                                        autoOn.start();
+                                    }
+                            }
+                            else {
+                                Toast.makeText(GraderFingerprint.this, "Please Re-connect the Fingerprint Device", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (TimeoutException e) {
+                            // Handle the timeout situation for OpenDevice operation
+                            // You can log a message, close the device, or perform other necessary actions
+                            error = SGFDxErrorCode.SGFDX_ERROR_TIME_OUT; // Set a timeout error code
+                        } catch (InterruptedException | ExecutionException e) {
+                            // Handle exceptions that might occur during the operation
+                            error = SGFDxErrorCode.SGFDX_ERROR_FUNCTION_FAILED; // Set an appropriate error code
+                        } finally {
+                            executor.shutdown();
                         }
-                        else {
-                            mNumFakeThresholds[0] = 1;		//0=Off, 1=Touch Chip
-                            mDefaultFakeThreshold[0] = 1; 	//Touch Chip Enabled
+
+                        //   android.util.Log.e("==========>408", error + "");
+                        //   Toast.makeText(VerifyFingerPrint.this, String.valueOf(error)+"Roja", Toast.LENGTH_SHORT).show();
+                        if( error == 0L){
+                            Toast.makeText(GraderFingerprint.this, "Proceed", Toast.LENGTH_SHORT).show();
                         }
-
-                        sgfplib.SetTemplateFormat(SGFDxTemplateFormat.TEMPLATE_FORMAT_ISO19794);
-                        sgfplib.GetMaxTemplateSize(mMaxTemplateSize);
-                        mRegisterTemplate = new byte[(int)mMaxTemplateSize[0]];
-                        mRegisterTemplate2 = new byte[(int)mMaxTemplateSize[0]];
-                        mRegisterTemplate3 = new byte[(int)mMaxTemplateSize[0]];
-
-
-                        if (mAutoOnEnabled){
-                            autoOn.start();
+                        if( error == 2L) {
+                            Toast.makeText(GraderFingerprint.this, "Fingerprint operation failed. Please try again.", Toast.LENGTH_SHORT).show();
                         }
-                    }
-                    else
-                    {
+                        //    Toast.makeText(VerifyFingerPrint.this, String.valueOf(error), Toast.LENGTH_SHORT).show();
+
+
+
                     }
                 }
                 //Thread thread = new Thread(this);

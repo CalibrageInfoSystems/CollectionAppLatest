@@ -20,122 +20,221 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="70dp"
-    android:layout_height="match_parent">
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:orientation="vertical">
 
-        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:padding="10dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <TextView
-                    style="@style/header_h1_text_title"
-                    android:paddingTop="1dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/collection_centre_name" />
-
-                <TextView
-                    style="@style/header_h1_text_title_list_item"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:id="@+id/collection_center_name"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:gravity="center_vertical"
-                    android:layout_marginLeft="10dp"/>
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
-            </LinearLayout>
+                    <TextView
+                        style="@style/header_h1_text_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingTop="1dp"
+                        android:text="@string/collection_centre_name" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/collection_center_name"
+                        style="@style/header_h1_text_title_list_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        style="@style/header_h1_text_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingTop="1dp"
+                        android:text="@string/collection_centre_code" />
+
+                    <TextView
+                        android:id="@+id/collection_center_code"
+                        style="@style/header_h1_text_title_list_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        style="@style/header_h1_text_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingTop="1dp"
+                        android:text="@string/collection_centre_village" />
+
+                    <TextView
+                        android:id="@+id/collection_center_village"
+                        style="@style/header_h1_text_title_list_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!--                <Spinner-->
+                    <!--                    android:id="@+id/spinnergradername"-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="wrap_content"/>-->
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/gradernamedroplinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        style="@style/header_h1_text_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="0.3"
+                        android:text="Grader Name :" />
+
+                    <Spinner
+                        android:id="@+id/spinnergradername"
+                        android:layout_width="wrap_content"
+                        style="@style/header_h1_text_title_list_item"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.6"
+                        android:background="@drawable/spinner_bg" />
+                </LinearLayout>
+
+
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_marginTop="@dimen/margin_top_layout"-->
+                <!--                android:id="@+id/gradernamelinear"-->
+
+                <!--                android:layout_margin="10dp"-->
+                <!--                android:layout_gravity="center"-->
+                <!--                android:gravity="center"-->
+                <!--                android:orientation="horizontal">-->
+
+                <!--                <TextView-->
+                <!--                    style="@style/header_h1_text_title"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_gravity="center_horizontal"-->
+                <!--                    android:paddingTop="1dp"-->
+                <!--                    android:layout_weight="1"-->
+                <!--                    android:text="Grader Name :" />-->
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/grader_name"-->
+                <!--                    style="@style/header_h1_text_title_list_item"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_gravity="center_vertical"-->
+
+                <!--                    />-->
+                <!--            </LinearLayout>-->
+
+                <LinearLayout
+                    android:id="@+id/gradernamelinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:padding="10dp"
+                    >
+
+                    <TextView
+                        style="@style/header_h1_text_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingTop="1dp"
+                        android:text="Grader Name :" />
+
+                    <TextView
+                        android:id="@+id/grader_name"
+                        style="@style/header_h1_text_title_list_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/colorPrimary" />
 
                 <TextView
+
+                    android:id="@+id/notRequired"
                     style="@style/header_h1_text_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="1dp"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/collection_centre_code" />
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="Fingerprint not Required for this Collection Center"
+                    android:visibility="gone" />
 
                 <TextView
-                    style="@style/header_h1_text_title_list_item"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:id="@+id/collection_center_code"
-                    android:layout_marginLeft="10dp"/>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:orientation="horizontal">
-
-                <TextView
+                    android:id="@+id/nograders"
                     style="@style/header_h1_text_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:paddingTop="1dp"
-                    android:text="@string/collection_centre_village" />
-
-                <TextView
-                    style="@style/header_h1_text_title_list_item"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:id="@+id/collection_center_village"
-                    android:layout_marginLeft="10dp"/>
-
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/colorPrimary" />
-            <TextView
-
-                android:id="@+id/notRequired"
-                style="@style/header_h1_text_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:visibility="gone"
-                android:layout_margin ="10dp"
-                android:text="Fingerprint not Required for this Collection Center" />
-            <TextView
-
-                android:id="@+id/nograders"
-                style="@style/header_h1_text_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:visibility="gone"
-                android:layout_margin ="10dp"
-                android:text="No Graders Available " />
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="No Graders Available "
+                    android:visibility="gone" />
 
                 <TextView
 
@@ -143,69 +242,58 @@
                     style="@style/header_h1_text_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:layout_margin ="10dp"
-                    android:text="Verify Fingerprint" />
+                    android:layout_margin="10dp"
+                    android:text="Verify Fingerprint"
+                    android:visibility="gone" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                <ImageView
+                    <ImageView
 
-                    android:id="@+id/imgverify_fingerprint"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:visibility="gone"
-                    android:layout_gravity="center"
-                    android:src="@drawable/fingerprintdefaulttwo"/>
+                        android:id="@+id/imgverify_fingerprint"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/fingerprintdefaulttwo"
+                        android:visibility="gone" />
+
                     <Button
 
                         android:id="@+id/btn_verifyfingerprint"
-                        android:layout_marginTop="10dp"
+                        style="@style/basicBtnStyle"
                         android:layout_width="200dp"
                         android:layout_height="50dp"
-                        style="@style/basicBtnStyle"
-                        android:visibility="gone"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
                         android:text="Verify Fingerprint"
-                        android:layout_gravity="center"/>
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_top_layout"
-                android:id="@+id/gradernamelinear"
-android:visibility="gone"
-                android:layout_margin="10dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/header_h1_text_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:text="Grader Name :" />
-
-                <TextView
-                    android:id="@+id/grader_name"
-                    style="@style/header_h1_text_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-
-                    />
-            </LinearLayout>
         </LinearLayout>
 
+
+
+
+            <Button
+
+                android:id="@+id/btn_Submitverifyfingerprint"
+                style="@style/basicBtnStyle"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+android:visibility="gone"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Submit"
+             />
+
+
     </LinearLayout>
-
-
-</LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

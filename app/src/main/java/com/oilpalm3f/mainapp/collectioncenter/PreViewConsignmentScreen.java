@@ -338,9 +338,7 @@ public class PreViewConsignmentScreen extends BaseFragment implements BluetoothD
                             if (success) {
                                 palm3FoilDatabase.insertErrorLogs(LOG_TAG, "saveConsignmentStatusHistoryData", CommonConstants.TAB_ID, "", msg, CommonUtils.getcurrentDateTime(CommonConstants.DATE_FORMAT_DDMMYYYY_HHMMSS));
                                 UiUtils.showCustomToastMessage("Data saved", getActivity(), 0);
-                                if (!TextUtils.isEmpty(SendConsignment.mCurrentPhotoPath) && SendConsignment.mCurrentPhotoPath.length() > 0) {
-                                    dataAccessHandler.insertConsignmentImageData(selectedConsignment.getCode(), SendConsignment.mCurrentPhotoPath, "false");
-                                }
+
                                 if (CommonUtils.isNetworkAvailable(getActivity())) {
                                     CommonUtils.isNotSyncScreen = false;
                                     DataSyncHelper.performCollectionCenterTransactionsSync(getActivity(), new ApplicationThread.OnComplete() {

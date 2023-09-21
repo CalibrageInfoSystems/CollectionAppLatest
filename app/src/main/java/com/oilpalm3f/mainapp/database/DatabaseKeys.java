@@ -391,5 +391,5 @@ public class DatabaseKeys {
     public final static String TABLE_COLLECTIONXPLOTREF = "CollectionPlotXref";
 
     public final static String COLUMN_COLLECTIONCODE = "CollectionCode";
-
+    public final static String GraderAttendance = "GraderAttendance";
 }

@@ -823,9 +823,9 @@ public class CommonUtils {
             deviceId = mTelephony.getDeviceId();
         }
 
-   return deviceId;
+  return deviceId;
 
-//   return "351558072968326";//Roja useid 114
+  // return "351558072968326";//Roja useid 114
        //return "351558072736715";//Live Rajshekar 205
  // return "351558072434071";//Nikhil
     // "351558072360896";//Arun

@@ -3,6 +3,7 @@ package com.oilpalm3f.mainapp.collectioncenter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -186,13 +187,12 @@ public class PreViewConsignmentScreen extends BaseFragment implements BluetoothD
             @Override
             public void onClick(View v) {
 
-
-
                 isConsignmentexist = dataAccessHandler.getOnlyOneIntValueFromDb(Queries.getInstance().isConsignmentExists(selectedConsignment.getCode()));
                 Log.d("isConsignmentexist", isConsignmentexist + "");
 
                 if (isConsignmentexist == 0){
                     saveConsignmentData(getContext());
+
                     FragmentManager fm = getChildFragmentManager();
                     PrinterChooserFragment printerChooserFragment = new PrinterChooserFragment();
                     printerChooserFragment.setCancelable(false);
@@ -338,7 +338,10 @@ public class PreViewConsignmentScreen extends BaseFragment implements BluetoothD
                             if (success) {
                                 palm3FoilDatabase.insertErrorLogs(LOG_TAG, "saveConsignmentStatusHistoryData", CommonConstants.TAB_ID, "", msg, CommonUtils.getcurrentDateTime(CommonConstants.DATE_FORMAT_DDMMYYYY_HHMMSS));
                                 UiUtils.showCustomToastMessage("Data saved", getActivity(), 0);
-
+                                if (!TextUtils.isEmpty(SendConsignment.mCurrentPhotoPath) && SendConsignment.mCurrentPhotoPath.length() > 0) {
+                                    dataAccessHandler.insertConsignmentImageData(selectedConsignment.getCode(), SendConsignment.mCurrentPhotoPath, "false");
+                                  SendConsignment.mCurrentPhotoPath = "";
+                                }
                                 if (CommonUtils.isNetworkAvailable(getActivity())) {
                                     CommonUtils.isNotSyncScreen = false;
                                     DataSyncHelper.performCollectionCenterTransactionsSync(getActivity(), new ApplicationThread.OnComplete() {
@@ -351,10 +354,14 @@ public class PreViewConsignmentScreen extends BaseFragment implements BluetoothD
                                                     public void run() {
                                                         enablePrintBtn(true);
                                                         SendConsignment.mCurrentPhotoPath = "";
+
+                                                       // getActivity().finish();
+
                                                         UiUtils.showCustomToastMessage("Successfully data sent to server", getActivity(), 0);
-                                                        //getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-//                                                        getActivity().startActivity(new Intent(getActivity(), CollectionCenterHomeScreen.class));
-//                                                        getActivity().finish();
+                                                    //    getActivity().startActivity(new Intent(getActivity(), CollectionCenterHomeScreen.class));
+                                                       // getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+
                                                     }
                                                 });
                                             } else {
@@ -363,6 +370,7 @@ public class PreViewConsignmentScreen extends BaseFragment implements BluetoothD
                                                     @Override
                                                     public void run() {
                                                         enablePrintBtn(true);
+
                                                         UiUtils.showCustomToastMessage("Data sync failed", getActivity(), 1);
                                                         //getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                                                     }
@@ -370,9 +378,13 @@ public class PreViewConsignmentScreen extends BaseFragment implements BluetoothD
                                             }
                                         }
                                     });
-                                } else {
+                                }
+
+                                else {
+
                                     enablePrintBtn(true);
-                                    //getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                                    SendConsignment.mCurrentPhotoPath = "";
+                               //   getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 //                                    getActivity().startActivity(new Intent(getActivity(), CollectionCenterHomeScreen.class));
 //                                    getActivity().finish();
                                 }

@@ -116,7 +116,7 @@ public class SendConsignment extends BaseFragment {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
     private Bitmap currentBitmap = null;
-
+    File file;
     public SendConsignment() {
 
     }
@@ -610,7 +610,10 @@ public class SendConsignment extends BaseFragment {
 //            Toast.makeText(getActivity(), "Please take the photo", Toast.LENGTH_LONG).show();
             return false;
         }
-
+        if (!file.exists()) {
+            UiUtils.showCustomToastMessage("Please Take The Consignment Photo", getActivity(), 1);
+            return false;
+        }
 
         double weightValue = 0;
         try {
@@ -761,10 +764,18 @@ public class SendConsignment extends BaseFragment {
     //Loading Image from the Storage
     private void loadImageFromStorage(String path) {
         try {
-            File f = new File(path);
-            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+            file = new File(path);
+            if (file.exists()) {
+            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(file));
             b = ImageUtility.rotatePicture(90, b);
             slipImage.setImageBitmap(b);
+            }
+            else{
+                Log.e("FileError", "The file does not exist at the specified path: " + path);
+                slipImage.setImageBitmap(null);
+                UiUtils.showCustomToastMessage("Please Take The Consigment Photo",getActivity(),1);
+//            Toast.makeText(getActivity(), "Please take the photo", Toast.LENGTH_LONG).show();
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

@@ -434,7 +434,7 @@ public class StockTransferReceipt extends BaseFragment implements BluetoothDevic
 
         mPrinter.setPrinter(PrinterConstants.Command.ALIGN, PrinterConstants.Command.ALIGN_CENTER);
         mPrinter.setCharacterMultiple(0, 1);
-        mPrinter.printText(qrCodeValue);
+        //mPrinter.printText(qrCodeValue);
 
         String spaceBuilder = "\n" +
                 " " +

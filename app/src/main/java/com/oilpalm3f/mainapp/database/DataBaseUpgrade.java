@@ -323,6 +323,7 @@ public class DataBaseUpgrade {
                 upgradeDb24(context,db);//Added on 16/09/2021
                 upgradeDb25(context,db);//Added on 15/06/2023
                 upgradeDb26(context,db);//Added on 15/06/2023
+                upgradeDb27(context,db);//Added on 14/11/2023
 
 
             } else {
@@ -411,6 +412,10 @@ public class DataBaseUpgrade {
                         case 26:
                             upgradeDb26(context, db);
                             UiUtils.showCustomToastMessage("Updating database 26-->" + Palm3FoilDatabase.DATA_VERSION, context, 0);
+
+                        case 27:
+                            upgradeDb27(context, db);
+                            UiUtils.showCustomToastMessage("Updating database 27-->" + Palm3FoilDatabase.DATA_VERSION, context, 0);
                     }
                 } else {
                     Log.v(LOG_TAG, "@@@@ database is already upgraded");
@@ -1033,6 +1038,27 @@ private static void upgradeDb25(final Context context, final SQLiteDatabase db) 
         } catch (Exception e) {
             e.printStackTrace();
             UiUtils.showCustomToastMessage("Db Upgrade failed for Version 26", context, 1);
+        }
+    }
+
+    private static void upgradeDb27(final Context context, final SQLiteDatabase db) {
+        Log.d(LOG_TAG, "****** upgradeDataBase 27 *****" + Palm3FoilDatabase.DATA_VERSION);
+
+
+        String CMApprovalCommentscolumn = "ALTER TABLE Plot Add CMApprovalComments VARCHAR(500)";
+        String SHApprovalCommentscolumn = "ALTER TABLE Plot Add SHApprovalComments VARCHAR(500)";
+        String AHApprovalCommentscolumn = "ALTER TABLE Plot Add AHApprovalComments VARCHAR(500)";
+
+
+        try {
+            db.execSQL(CMApprovalCommentscolumn);
+            db.execSQL(SHApprovalCommentscolumn);
+            db.execSQL(AHApprovalCommentscolumn);
+            //   db.execSQL(column10);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            UiUtils.showCustomToastMessage("Db Upgrade failed for Version 27", context, 1);
         }
     }
 }

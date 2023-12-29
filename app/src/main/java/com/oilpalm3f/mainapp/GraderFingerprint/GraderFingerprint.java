@@ -861,8 +861,8 @@ public class GraderFingerprint extends AppCompatActivity implements Runnable, SG
         String value3 = fingerprintTemplateString2.trim();
         String value4 = fingerprintTemplateString3.trim();
 
-      //  String apiUrl = "http://182.18.157.215/3FSmartPalm_Nursery/API/api/Grader/UpdateGraderFingerPrint";
-          String apiUrl = "http://182.18.139.166/3FOilPalm/API/api/Grader/UpdateGraderFingerPrint";
+        String apiUrl = "http://182.18.157.215/3FSmartPalm_Nursery/API/api/Grader/UpdateGraderFingerPrint";
+          //String apiUrl = "http://182.18.139.166/3FOilPalm/API/api/Grader/UpdateGraderFingerPrint";
 
         PostRequestTask task = new PostRequestTask();
         String response = null;

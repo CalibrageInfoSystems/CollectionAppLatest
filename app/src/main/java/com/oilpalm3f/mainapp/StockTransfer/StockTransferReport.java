@@ -483,7 +483,7 @@ public class StockTransferReport extends OilPalmBaseActivity implements onPrintO
 
         int length = ((selectedReport.getCode()).length());
 
-        Toast.makeText(getApplicationContext(),"QR-Code Value-->"+length,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),"QR-Code Value-->"+length,Toast.LENGTH_LONG).show();
         Log.v("@@@days",""+length);
 
         if((length>=22) && (length<=24))
@@ -532,7 +532,7 @@ public class StockTransferReport extends OilPalmBaseActivity implements onPrintO
 
         mPrinter.setPrinter(PrinterConstants.Command.ALIGN, PrinterConstants.Command.ALIGN_CENTER);
         mPrinter.setCharacterMultiple(0, 1);
-        mPrinter.printText(qrCodeValue);
+        //mPrinter.printText(qrCodeValue);
 
         String spaceBuilder = "\n" +
                 " " +

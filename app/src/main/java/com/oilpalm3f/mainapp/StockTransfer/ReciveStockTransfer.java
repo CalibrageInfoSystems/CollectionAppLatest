@@ -108,8 +108,9 @@ public class ReciveStockTransfer extends AppCompatActivity implements View.OnCli
             String year = stockTransferNumber.substring(0,4);
             int tabId = Integer.parseInt(stockTransferNumber.substring(4,7));
             int fromCCId = Integer.parseInt(stockTransferNumber.substring(7,10));
-            //Log.d("fromCCID", fromCCId + "");
+            Log.d("fromCCID", fromCCId + "");
             int toCCId = Integer.parseInt(stockTransferNumber.substring(10,13));
+            Log.d("toCCId", toCCId + "");
             int maxCount = Integer.parseInt(stockTransferNumber.substring(13,18));
             int netWeight = 0;
             String  days = "";

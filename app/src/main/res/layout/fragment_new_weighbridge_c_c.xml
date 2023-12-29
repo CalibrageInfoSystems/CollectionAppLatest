@@ -306,7 +306,8 @@
                             android:text="@string/gross_weight" />
 
                         <EditText
-
+                            android:editable="false"
+                            android:focusable="false"
                             android:id="@+id/gross_weight"
                             style="@style/editTxt_normal"
                             android:layout_width="0dp"

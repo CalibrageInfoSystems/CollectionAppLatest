@@ -380,7 +380,7 @@ public class ConsignmentReportActivity extends OilPalmBaseActivity implements on
         String qrCodeValue = hashString.substring(0,24);
         Barcode barcode = new Barcode(PrinterConstants.BarcodeType.QRCODE, 3, 95, 3, qrCodeValue);
 
-        Toast.makeText(getApplicationContext(),"QR-Code Value-->"+qrCodeValue,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),"QR-Code Value-->"+qrCodeValue,Toast.LENGTH_LONG).show();
 
         mPrinter.setPrinter(PrinterConstants.Command.ALIGN, PrinterConstants.Command.ALIGN_CENTER);
 
@@ -405,7 +405,7 @@ public class ConsignmentReportActivity extends OilPalmBaseActivity implements on
 
 //        mPrinter.printBarCode(barcode);
         mPrinter.setCharacterMultiple(0, 1);
-        mPrinter.printText(qrCodeValue);// need to comment the line and test
+        //mPrinter.printText(qrCodeValue);// need to comment the line and test
         String spaceBuilder = "\n" +
                 " " +
                 "\n" +

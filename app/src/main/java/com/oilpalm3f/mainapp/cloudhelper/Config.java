@@ -19,11 +19,11 @@ public class Config {
 
  //  public static String live_url = "http://120.138.8.8:9020/API/api";
 //      public static  String live_url = "http://183.82.103.171:8085/API";
-     public static  String live_url = "http://182.18.139.166/3FOilPalm/API/api";
+     //public static  String live_url = "http://182.18.139.166/3FOilPalm/API/api";
       //public static  String live_url = "http://183.82.111.111/3FOilPalm_Live/API/api";
        //public static String live_url = "http://183.82.111.111/3FOilPalm/API/api"; //test
     //   public static String live_url = "http://182.18.157.215/3FSmartPalm/API/api";//new Test
-  //  public static String live_url = "http://182.18.157.215/3FSmartPalm_Nursery/API/api"; //UAT
+    public static String live_url = "http://182.18.157.215/3FSmartPalm_Nursery/API/api"; //UAT
  //   public static String live_url = "http://182.18.157.215/3FSmartPalm_Performance/API/api"; //UAT
 
     //local URl
@@ -33,18 +33,18 @@ public class Config {
            //live_url = "http://183.82.111.111/3FOilPalm_Live/API/api" ;
           //live_url = "http://183.82.111.111/3FOilPalm/API/api" ;//test
         //  live_url = "http://182.18.157.215/3FSmartPalm/API/api"; //new Test
-    //   live_url = "http://182.18.157.215/3FSmartPalm_Nursery/API/api";
+       live_url = "http://182.18.157.215/3FSmartPalm_Nursery/API/api";
            // live_url = "http://182.18.157.215/3FSmartPalm_Performance/API/api";
 //      //      live_url = "http://183.82.111.111/3FOilPalm/API/api" ;
-         live_url = "http://182.18.139.166/3FOilPalm/API/api" ;
+    //live_url = "http://182.18.139.166/3FOilPalm/API/api" ;
      //             live_url = "http://120.138.8.8:9020/API/api";
 
         } else {
        //   live_url = "http://120.138.8.8:9020/API/api";
-            live_url = "http://182.18.139.166/3FOilPalm/API/api" ;
+            //live_url = "http://182.18.139.166/3FOilPalm/API/api" ;
             //live_url = "http://183.82.111.111/3FOilPalm/API/api" ; //test
           //  live_url = "http://182.18.157.215/3FSmartPalm/API/api"; //new Test
-          //  live_url = "http://182.18.157.215/3FSmartPalm_Nursery/API/api";
+            live_url = "http://182.18.157.215/3FSmartPalm_Nursery/API/api";
           //  live_url = "http://182.18.157.215/3FSmartPalm_Performance/API/api";
 //            live_url = "http://183.82.111.111/3FOilPalm/API/api" ;
             //live_url = "http://183.82.111.111/3FOilPalm_Live/API/api" ;
@@ -72,8 +72,8 @@ public class Config {
     public static final String updatedbFile = "/TabDatabase/UploadDatabase";
     public static final String getTransactionSyncURL = "/TranSync/TabSync";
 
-    public static final String getTransCount = "/SyncTransactions/GetCount";//{Date}/{UserId}
-   // public static final String getTransCount = "/SyncTransactions/GetCollectionAppCount";//{Date}/{UserId}
+    //public static final String getTransCount = "/SyncTransactions/GetCount";//{Date}/{UserId}
+    public static final String getTransCount = "/SyncTransactions/GetCollectionAppCount";//{Date}/{UserId}
 
 
     public static final String getTransCountByVillageCode = "/TranSync/GetCountByVillage/%s/%s/%s";//{Date}/{UserId}{Village}
@@ -84,7 +84,7 @@ public class Config {
     public static final String validateTranSync = "/TranSync/ValidateTranSync/%s";
 
   //  public static final String image_url = "http://182.18.139.166/3FOilPalm/3FOilPalmRepository/FileRepository/";
-    public static final String image_url = "http://182.18.139.166/3FOilPalm/FileRepository/";  //using this on for live
+    //public static final String image_url = "http://182.18.139.166/3FOilPalm/FileRepository/";  //using this on for live
    // public static final String image_url = "http://183.82.111.111/3FOilPalm/3FFileRepositery/FileRepository/";//test
-  //  public static final String image_url = "http://182.18.157.215/3FSmartPalm_Nursery/3FSmartPalm_Nursery_Repo/FileRepository/";
+    public static final String image_url = "http://182.18.157.215/3FSmartPalm_Nursery/3FSmartPalm_Nursery_Repo/FileRepository/";
 }

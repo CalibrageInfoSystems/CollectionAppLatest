@@ -875,7 +875,18 @@ public class PrintReceipt extends BaseFragment implements BluetoothDevicesFragme
         StringBuilder sb = new StringBuilder();
         mPrinter.setPrinter(PrinterConstants.Command.ALIGN, PrinterConstants.Command.ALIGN_CENTER);
         mPrinter.setCharacterMultiple(0, 1);
-        //mPrinter.printText(" 3F Oil Palm AgroTech PVT LTD " + "\n");
+
+        mPrinter.printText(" 3F OILPALM PVT LTD " + "\n");
+        mPrinter.setPrinter(PrinterConstants.Command.ALIGN, PrinterConstants.Command.ALIGN_CENTER);
+        mPrinter.setCharacterMultiple(0, 1);
+        mPrinter.printText("  Collection Receipt " + "\n");
+        mPrinter.setPrinter(PrinterConstants.Command.ALIGN, PrinterConstants.Command.ALIGN_LEFT);
+        mPrinter.setCharacterMultiple(0, 0);
+        /*mPrinter.setLeftMargin(15, 15);*/
+        mPrinter.setLeftMargin(0, 0);
+        sb.append("==============================================" + "\n");
+
+       // mPrinter.printText(" 3F Oil Palm AgroTech PVT LTD " + "\n");
 //        if (!basicFarmerDetails.getFarmerCode().startsWith("FFBFARMER")) {
 //            mPrinter.printText(" 3F Oil Palm AgroTech PVT LTD " + "\n");
 //        }
@@ -887,7 +898,6 @@ public class PrintReceipt extends BaseFragment implements BluetoothDevicesFragme
         mPrinter.setCharacterMultiple(0, 0);
         /*mPrinter.setLeftMargin(15, 15);*/
         mPrinter.setLeftMargin(0, 0);
-        sb.append("--------------------------------------------" + "\n");
         sb.append("  DateTime: ");
         sb.append(" ").append(currentDate_am_pm).append("\n");
         sb.append(" ");

@@ -513,14 +513,19 @@ public class PreViewConsignmentScreen extends BaseFragment implements BluetoothD
         }else if (CommonConstants.PrinterName.contains("G-8BT3 AMIGOS")){
             com.oilpalm3f.mainapp.cloudhelper.Log.d(LOG_TAG,"########### NEWEST ##############");
             print_qr_codee(mPrinter,qrCodeValue);
-        }else{
+        }
+        else if (CommonConstants.PrinterName.contains("G-8MBT3")){
+            com.oilpalm3f.mainapp.cloudhelper.Log.d(LOG_TAG,"########### LATEST ##############");
+            print_qr_codee(mPrinter,qrCodeValue);
+        }
+        else{
             com.oilpalm3f.mainapp.cloudhelper.Log.d(LOG_TAG,"########### OLD ##############");
             mPrinter.printBarCode(barcode);
         }
 
         mPrinter.setPrinter(PrinterConstants.Command.ALIGN, PrinterConstants.Command.ALIGN_CENTER);
         mPrinter.setCharacterMultiple(0, 1);
-        mPrinter.printText(qrCodeValue);
+        //mPrinter.printText(qrCodeValue);
 
 
         String spaceBuilder = "\n" +

@@ -57,7 +57,7 @@ public class CollectionReport extends OilPalmBaseActivity implements onPrintOpti
     private String toDateStr = "";
     private CollectionReportModel selectedReport;
     private String title = " 3F OILPALM PVT LTD ";
-    private String subTitle = "   Oil Palm F.F.B Receipt";
+    private String subTitle = " Collection Receipt ";
     private BluetoothDevicesFragment bluetoothDevicesFragment = null;
     private UsbDevicesListFragment usbDevicesListFragment = null;
 
@@ -345,12 +345,12 @@ public class CollectionReport extends OilPalmBaseActivity implements onPrintOpti
         String bankName = selectedReport.getBankName();
         mPrinter.init();
         StringBuffer sb = new StringBuffer();
-//        mPrinter.setPrinter(PrinterConstants.Command.ALIGN, PrinterConstants.Command.ALIGN_CENTER);
-//        mPrinter.setCharacterMultiple(0, 1);
-//        mPrinter.printText(title + "\n");
-//        mPrinter.setPrinter(PrinterConstants.Command.ALIGN, PrinterConstants.Command.ALIGN_CENTER);
-//        mPrinter.setCharacterMultiple(0, 1);
-//        mPrinter.printText(subTitle + "\n");
+        mPrinter.setPrinter(PrinterConstants.Command.ALIGN, PrinterConstants.Command.ALIGN_CENTER);
+        mPrinter.setCharacterMultiple(0, 1);
+        mPrinter.printText(title + "\n");
+        mPrinter.setPrinter(PrinterConstants.Command.ALIGN, PrinterConstants.Command.ALIGN_CENTER);
+        mPrinter.setCharacterMultiple(0, 1);
+        mPrinter.printText(subTitle + "\n");
         mPrinter.setPrinter(PrinterConstants.Command.ALIGN, PrinterConstants.Command.ALIGN_LEFT);
         mPrinter.setCharacterMultiple(0, 0);
         /*mPrinter.setLeftMargin(15, 15);*/

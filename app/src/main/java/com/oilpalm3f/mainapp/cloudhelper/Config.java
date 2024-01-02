@@ -23,7 +23,9 @@ public class Config {
       //public static  String live_url = "http://183.82.111.111/3FOilPalm_Live/API/api";
        //public static String live_url = "http://183.82.111.111/3FOilPalm/API/api"; //test
     //   public static String live_url = "http://182.18.157.215/3FSmartPalm/API/api";//new Test
-    public static String live_url = "http://182.18.157.215/3FSmartPalm_Nursery/API/api"; //UAT
+    //public static String live_url = "http://182.18.157.215/3FSmartPalm_Nursery/API/api"; //Test
+    public static String live_url = "http://182.18.157.215/3FOilPalmNurseryTest/API/api"; //UAT
+
  //   public static String live_url = "http://182.18.157.215/3FSmartPalm_Performance/API/api"; //UAT
 
     //local URl
@@ -33,21 +35,24 @@ public class Config {
            //live_url = "http://183.82.111.111/3FOilPalm_Live/API/api" ;
           //live_url = "http://183.82.111.111/3FOilPalm/API/api" ;//test
         //  live_url = "http://182.18.157.215/3FSmartPalm/API/api"; //new Test
-       live_url = "http://182.18.157.215/3FSmartPalm_Nursery/API/api";
+       //live_url = "http://182.18.157.215/3FSmartPalm_Nursery/API/api"; Test
            // live_url = "http://182.18.157.215/3FSmartPalm_Performance/API/api";
 //      //      live_url = "http://183.82.111.111/3FOilPalm/API/api" ;
     //live_url = "http://182.18.139.166/3FOilPalm/API/api" ;
      //             live_url = "http://120.138.8.8:9020/API/api";
+            live_url = "http://182.18.157.215/3FOilPalmNurseryTest/API/api"; //UAT
 
         } else {
        //   live_url = "http://120.138.8.8:9020/API/api";
             //live_url = "http://182.18.139.166/3FOilPalm/API/api" ;
             //live_url = "http://183.82.111.111/3FOilPalm/API/api" ; //test
           //  live_url = "http://182.18.157.215/3FSmartPalm/API/api"; //new Test
-            live_url = "http://182.18.157.215/3FSmartPalm_Nursery/API/api";
+            //live_url = "http://182.18.157.215/3FSmartPalm_Nursery/API/api"; Test
           //  live_url = "http://182.18.157.215/3FSmartPalm_Performance/API/api";
 //            live_url = "http://183.82.111.111/3FOilPalm/API/api" ;
             //live_url = "http://183.82.111.111/3FOilPalm_Live/API/api" ;
+
+            live_url = "http://182.18.157.215/3FOilPalmNurseryTest/API/api"; //UAT
         }
 
     }

@@ -93,7 +93,7 @@ public class DataSyncHelper {
     private static boolean isFailedForAnyTable = false;
     public static boolean isSyncFinished = false;
     public static String PREVIOUS_SYNC_DATE = "previous_sync_date";
-    //public static String PREVIOUS_SYNC_DATE = null;
+   // public static String PREVIOUS_SYNC_DATE = null;
     private static List<FileRepository> totalFileRepositoryList = new ArrayList<>();
     private static ProgressDialogFragment progressDialogFragment;
     private static final String USER_AGENT = "Mozilla/5.0";

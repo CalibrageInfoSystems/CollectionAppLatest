@@ -324,6 +324,7 @@ public class DataBaseUpgrade {
                 upgradeDb25(context,db);//Added on 15/06/2023
                 upgradeDb26(context,db);//Added on 15/06/2023
                 upgradeDb27(context,db);//Added on 14/11/2023
+                upgradeDb28(context,db);//Added on 30/01/2024
 
 
             } else {
@@ -416,6 +417,9 @@ public class DataBaseUpgrade {
                         case 27:
                             upgradeDb27(context, db);
                             UiUtils.showCustomToastMessage("Updating database 27-->" + Palm3FoilDatabase.DATA_VERSION, context, 0);
+                        case 28:
+                            upgradeDb28(context, db);
+                            UiUtils.showCustomToastMessage("Updating database 28-->" + Palm3FoilDatabase.DATA_VERSION, context, 0);
                     }
                 } else {
                     Log.v(LOG_TAG, "@@@@ database is already upgraded");
@@ -1059,6 +1063,22 @@ private static void upgradeDb25(final Context context, final SQLiteDatabase db) 
         } catch (Exception e) {
             e.printStackTrace();
             UiUtils.showCustomToastMessage("Db Upgrade failed for Version 27", context, 1);
+        }
+    }
+
+    private static void upgradeDb28(final Context context, final SQLiteDatabase db) {
+        Log.d(LOG_TAG, "****** upgradeDataBase 28 *****" + Palm3FoilDatabase.DATA_VERSION);
+
+
+        String locationidcc = "ALTER TABLE CollectionCenter Add MillLocationTypeId INT";
+
+        try {
+            db.execSQL(locationidcc);
+            //   db.execSQL(column10);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            UiUtils.showCustomToastMessage("Db Upgrade failed for Version 28", context, 1);
         }
     }
 }

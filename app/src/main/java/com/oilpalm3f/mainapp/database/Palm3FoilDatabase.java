@@ -28,7 +28,8 @@ public class Palm3FoilDatabase extends SQLiteOpenHelper {
     public static final String LOG_TAG = Palm3FoilDatabase.class.getName();
     private final static String DATABASE_NAME = "3foilpalm.sqlite";
 
-    public final static int DATA_VERSION = 27;//changed on 26/09/2023
+    //public final static int DATA_VERSION = 27;//changed on 26/09/2023
+    public final static int DATA_VERSION = 28;//changed on 30/01/2024
    // public final static int DATA_VERSION = 25;//changed on 16/09/2021
 //    public final static int DATA_VERSION = 20;
     public static String Lock = "dblock";
